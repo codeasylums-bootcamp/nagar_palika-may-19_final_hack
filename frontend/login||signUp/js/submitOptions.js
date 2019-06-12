@@ -13,11 +13,11 @@ function userLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
-            <label for="password">Password:</label>
+            <input type="email" id="userEmail" name="email" />
+            <label for="userPassword">Password:</label>
             <input
             type="password" 
-            id="password" 
+            id="userPassword" 
             name="password" 
             />
 
@@ -43,11 +43,11 @@ function ngoLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="ngoEmail" name="email" />
             <label for="password">Password:</label>
             <input
             type="password" 
-            id="password" 
+            id="ngoPassword" 
             name="password" 
             />
 
@@ -73,11 +73,11 @@ function restaurantLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="restEmail" name="email" />
             <label for="password">Password:</label>
             <input
             type="password" 
-            id="password" 
+            id="restPassword" 
             name="password" 
             />
 
@@ -103,8 +103,8 @@ function staffLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
-            <label for="password">Password:</label>
+            <input type="email" id="staffEmail" name="email" />
+            <label for="staffPassword">Password:</label>
             <input
             type="password" 
             id="password" 
@@ -262,4 +262,85 @@ function restaurantSignUpForm(){
 
     </div>
 </div>`;
+}
+
+// Login||SignUp Form End
+
+// SUBMIT FROM ALL FORMS
+
+
+function userLogin(){
+    let userEmail=document.getElementById('userEmail').value;
+    let userPassword=document.getElementById('userPassword').value;
+
+    axios.post("",{
+        userEmail,
+        userPassword
+    }).then(res=>{
+
+    }).catch(err=>{
+        alert(err);
+    })
+
+}
+
+function ngoLogin(){
+    let ngoEmail=document.getElementById('ngoEmail').value;
+    let ngoPassword=document.getElementById('ngoPassword').value;
+
+
+    axios.post("",{
+        ngoEmail,
+        ngoPassword
+    }).then(res=>{
+
+    }).catch(err=>{
+        alert(err);
+    })
+
+
+}
+
+function restLogin(){
+    let restEmail=document.getElementById('restEmail').value;
+    let restPassword=document.getElementById('restPassword').value;
+
+    axios.post("",{
+        restEmail,
+        restPassword
+    }).then(res=>{
+
+    }).catch(err=>{
+        alert(err);
+    })
+}
+
+function staffLogin(){
+
+    let staffEmail=document.getElementById('staffEmail').value;
+    let staffPassword=document.getElementById('staffPassword').value;
+
+    axios.post("",{
+        staffEmail,
+        staffPassword
+    }).then(res=>{
+
+    }).catch(err=>{
+        alert(err);
+    })
+
+}
+
+function userSignUp(){
+
+
+
+}
+
+function ngoSignUp(){
+
+}
+
+function restSignUp(){
+    
 }
