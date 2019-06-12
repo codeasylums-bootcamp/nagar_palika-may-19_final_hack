@@ -21,7 +21,7 @@ function userLoginForm(){
             name="password" 
             />
 
-        <button class="btn btn-info">Submit</button>
+        <button class="btn btn-info" onclick="userLogin()">Submit</button>
         </div>
                                                         
 
@@ -51,7 +51,7 @@ function ngoLoginForm(){
             name="password" 
             />
 
-        <button class="btn btn-info">Submit</button>
+        <button class="btn btn-info" onclick="ngoLogin()">Submit</button>
         </div>
                                                         
 
@@ -81,7 +81,7 @@ function restaurantLoginForm(){
             name="password" 
             />
 
-        <button class="btn btn-info">Submit</button>
+        <button class="btn btn-info" onclick="restLogin()">Submit</button>
         </div>
                                                         
 
@@ -111,7 +111,7 @@ function staffLoginForm(){
             name="password" 
             />
 
-        <button class="btn btn-info">Submit</button>
+        <button class="btn btn-info" onclick="staffLogin()">Submit</button>
         </div>
                                                         
 
@@ -137,34 +137,34 @@ function userSignUpForm(){
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
-            <label for="firstname">Firstname</label>
+            <label for="userSignFirstname">Firstname</label>
             <input 
             type="text" 
-            id="firstname" 
+            id="userSignFirstname" 
             name="firstname" 
             />
 
-            <label for="lastname">Lastname</label>
-            <input type="text" id="lastname" name="lastname" />
+            <label for="userLastname">Lastname</label>
+            <input type="text" id="userSignLastname" name="lastname" />
 
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" />
+            <label for="userUsername">Username</label>
+            <input type="text" id="userSignUsername" name="userUsername" />
 
-            <label for="name">Date of Birth</label>
-            <input type="text" id="lastname" name="lastname" />
+            <label for="Date of Birth">Date of Birth</label>
+            <input type="text" id="userSignDateofBirth" name="Date of Birth" />
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="userSignEmail" name="email" />
 
 
-            <label for="password">Password:</label>
+            <label for="userPassword">Password:</label>
             <input
             type="password" 
-            id="password" 
+            id="userSignPassword" 
             name="password" 
             />
 
-        <button class="btn btn-info">Submit</button>
+        <button class="btn btn-info" onclick="userSignUp()">Submit</button>
         </div>
                                                         
 
@@ -185,32 +185,32 @@ function ngoSignUpForm(){
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
-        <label for="firstname">NGOname</label>
+        <label for="firstname">NGO Name</label>
         <input 
         type="text" 
-        id="ngoName" 
+        id="ngoSignName" 
         name="ngoName" 
         />
 
-        <label for="lastname">NGOcode</label>
-        <input type="text" id="ngoCode" name="ngoCode" />
+        <label for="lastname">NGO Code</label>
+        <input type="text" id="ngoSignCode" name="ngoCode" />
 
         <label for="username">Established Date</label>
-        <input type="text" id="dateOfEstd" name="dateOfEstd" placeholder="DD/MM/YY"/>
+        <input type="text" id="dateOfEstd" name="ngoDateOfEstd" placeholder="DD/MM/YY"/>
 
         
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" />
+        <input type="email" id="ngoSignEmail" name="email" />
 
 
         <label for="password">Password:</label>
         <input
         type="password" 
-        id="password" 
+        id="ngoSignPassword" 
         name="password" 
         />
-      <button class="btn btn-info">Submit</button>
+      <button class="btn btn-info" onclick="ngoSignUp()">Submit</button>
       </div>
                                                         
 
@@ -234,18 +234,18 @@ function restaurantSignUpForm(){
         <label for="restName">Name of the Restaurant</label>
         <input 
         type="text" 
-        id="restName" 
+        id="restSignName" 
         name="restName" 
         />
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" />
+        <input type="email" id="restSignEmail" name="email" />
 
 
         <label for="password">Password:</label>
         <input
         type="password" 
-        id="password" 
+        id="restSignPassword" 
         name="password" 
         />
 
@@ -256,7 +256,7 @@ function restaurantSignUpForm(){
         name="foodAvailable" 
         />
 
-      <button class="btn btn-info">Submit</button>
+      <button class="btn btn-info" onclick="restSignUp()">Submit</button>
       </div>
                                                         
 
@@ -277,7 +277,7 @@ function userLogin(){
         userEmail,
         userPassword
     }).then(res=>{
-
+            
     }).catch(err=>{
         alert(err);
     })
@@ -290,8 +290,8 @@ function ngoLogin(){
 
 
     axios.post("",{
-        ngoEmail,
-        ngoPassword
+        email:ngoEmail,
+        password:ngoPassword
     }).then(res=>{
 
     }).catch(err=>{
@@ -306,8 +306,8 @@ function restLogin(){
     let restPassword=document.getElementById('restPassword').value;
 
     axios.post("",{
-        restEmail,
-        restPassword
+        email:restEmail,
+        password:restPassword
     }).then(res=>{
 
     }).catch(err=>{
@@ -321,8 +321,8 @@ function staffLogin(){
     let staffPassword=document.getElementById('staffPassword').value;
 
     axios.post("",{
-        staffEmail,
-        staffPassword
+        email:staffEmail,
+        password:staffPassword
     }).then(res=>{
 
     }).catch(err=>{
@@ -332,15 +332,67 @@ function staffLogin(){
 }
 
 function userSignUp(){
+    console.log("aftescxsr")
+    let userFirstname=document.getElementById('userSignFirstname').value;
+    let userLastname=document.getElementById('userSignLastname').value;
+    let userUsername=document.getElementById('userSignUsername').value;
+    let userDateofBirth=document.getElementById('userSignDateofBirth').value;
+    let userEmail=document.getElementById('userSignEmail').value;
+    let userPassword=document.getElementById('userSignPassword').value;
 
 
+    axios.post("http://localhost:3000/user/login",{
+        firstname:userFirstname,
+        lastname:userLastname,
+        username:userUsername,
+        dateofBirth:userDateofBirth,
+        email:userEmail,
+        password:userPassword
+    }).then(res=>{
+        console.log("done")
+    }).catch(err=>{
+        console.log("error")
+    })
+    
+    
 
 }
 
 function ngoSignUp(){
 
+    let ngoName=document.getElementById('ngoSignName').value;
+    let ngoCode=document.getElementById('ngoSignCode').value;
+    let dateOfEstd=document.getElementById('dateOfEstd').value;
+    let email=document.getElementById('ngoSignEmail').value;
+    let password=document.getElementById('ngoSignPassword').value;
+
+
+    axios.post("",{
+        ngoName,
+        ngoCode,
+        dateOfEstd,
+        email,
+        password
+    }).then(res=>{
+
+    }).catch(res=>{
+
+    })
+
 }
 
 function restSignUp(){
     
+    let restSignName=document.getElementById('restSignName').value;
+    let restSignEmail=document.getElementById('restSignEmail').value;
+    let restSignPassword=document.getElementById('restSignPassword').value;
+    let foodAvailable=document.getElementById('foodAvailable').value;
+
+
+    axios.post("",{
+        restName:restSignName,
+        email:restSignEmail,
+        password:restSignPassword,
+        foodAvailable
+    })
 }
