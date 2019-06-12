@@ -15,7 +15,7 @@ mongoose.connect("mongodb+srv://frozencurry:easy@cluster3105-tn8ee.mongodb.net/t
     }
 })
 
-//const user=require('./routes/user.js')
+const user=require('./routes/user.js')
 
 
 app.use(morgan('dev'));
@@ -27,9 +27,9 @@ app.use("*",function(req,res,next){
     res.set('Access-Control-Allow-Methods', '*');
     next();
 })
-console.log("midway")
 
-//app.use('/user',user);
+
+app.use('/user',user);
 
 
 app.listen(port,function(){
