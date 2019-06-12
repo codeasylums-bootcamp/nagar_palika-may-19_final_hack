@@ -2,6 +2,7 @@ const express=require('express')
 const mongoose=require('mongoose')
 const parser=require('body-parser')
 const morgan=require('morgan')
+
 const app=express();
 const port=3000;
 
@@ -17,6 +18,7 @@ mongoose.connect("mongodb+srv://frozencurry:easy@cluster3105-tn8ee.mongodb.net/t
 
 const user=require('./routes/user.js')
 const issue= require('./routes/issue.js')
+const upload = require('./routes/upload.js')
 
 
 
@@ -33,6 +35,8 @@ app.use("*",function(req,res,next){
 
 app.use('/user',user);
 app.use('/issue',issue);
+
+app.use('/upload',upload);
 
 
 app.listen(port,function(){
