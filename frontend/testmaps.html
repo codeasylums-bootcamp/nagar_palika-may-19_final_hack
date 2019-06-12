@@ -11,6 +11,11 @@
         height: 50%;
         width: 50%;
       }
+
+      #map2 {
+          height: 50%;
+          width: 50%;
+      }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
@@ -21,8 +26,13 @@
   </head>
   <body>
     <div id="map"></div>
+    <br>
+    <br>
+    <br>
+    <div id="map2"></div>
     <script>
       var map;
+      var map2;
       var pos;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -40,12 +50,14 @@
               lng: position.coords.longitude
             };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Current Location.');
-            infoWindow.open(map);
+            //infoWindow.setPosition(pos);
+            //infoWindow.setContent('Current Location.');
+            //infoWindow.open(map);
             map.setCenter(pos);
 
             console.log(pos);
+            addMarker(pos);
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -63,6 +75,19 @@
         infoWindow.open(map);
 
       }
+
+      function addMarker(location) {
+        var marker = new google.maps.Marker({
+        position: pos,
+         map: map,
+        title:"current",
+        animation: google.maps.Animation.DROP,
+    });
+
+    }
+
+      //map2 = new
+
 
       
     </script>
