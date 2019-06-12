@@ -23,6 +23,9 @@
         padding: 0;
       }
     </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzLdcKEPCe4SQf3-cdSnq5vmh_MRaHCs&callback=initMap"
+    async defer></script>
   </head>
   <body>
     <div id="map"></div>
@@ -37,7 +40,7 @@
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          zoom: 16
         });
 
         infoWindow = new google.maps.InfoWindow;
@@ -86,12 +89,36 @@
 
     }
 
+    var origin1 = new google.maps.LatLng(55.930385, -3.118425);
+    var origin2 = 'Greenwich, England';
+    var destinationA = 'Stockholm, Sweden';
+    var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+
+    var service = new google.maps.DistanceMatrixService();
+    service.getDistanceMatrix(
+    {
+    origins: [origin1, origin2],
+    destinations: [destinationA, destinationB],
+    travelMode: 'DRIVING',
+    transitOptions: TransitOptions,
+    drivingOptions: DrivingOptions,
+    unitSystem: UnitSystem,
+    avoidHighways: Boolean,
+    avoidTolls: Boolean,
+  }, callback);
+
+function callback(response, status) {
+
+    console.log(response);
+    console.log(status);
+  // See Parsing the Results for
+  // the basics of a callback function.
+}
       //map2 = new
 
 
       
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzLdcKEPCe4SQf3-cdSnq5vmh_MRaHCs&callback=initMap"
-    async defer></script>
+    
   </body>
 </html>
