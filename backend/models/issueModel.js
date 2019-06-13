@@ -5,7 +5,8 @@ const issueSchema= mongoose.Schema({
     issueId:{type: String, required: true},
     issueDesc:{type: String, required:true },
     issueLocation:{type: String, required: true},
-    issueStatus:{type: Boolean, required: true, defaul: 0} //0 for unsolved 1 for solved
+    issueStatus:{type: Boolean, required: true, defaul: 0},
+    issueImageUrl:{type: String}
    
 
 

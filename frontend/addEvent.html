@@ -76,21 +76,22 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title">Title</h5>
-                <textarea style="background:grey;width:100%;border-radius:.5em;color:white;"></textarea>
+                <textarea style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventTitle"></textarea>
               </div>
               <div class="card-body">
                 <h5 class="card-title">location</h5>
-                <textarea rows="3" style="background:grey;width:100%;border-radius:.5em;color:white;"></textarea>
+                <textarea rows="3" style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventLocation"></textarea>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Description</h5>
-                <textarea rows="10" style="background:grey;width:100%;border-radius:.5em;color:white;"></textarea>
+                <textarea rows="10" style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventDesc"></textarea>
               </div>
               <div class="card-body">
-                <button type="button" style="background:black; border-radius:.5em;height:3em;width:12em;color:white;padding:0 0 .15em 0">Upload image</button>
+                  <h5 class="card-title">Upload Image</h5>
+                <input type="file" id="imgData" >
               </div>
               <div class="card-body">
-                <button type="submit" style="background:black; border-radius:.5em;height:3em;width:12em;color:white;padding:0 0 .15em 0;">Post</button>
+                <button type="submit" style="background:#f2f4f6; border-radius:.5em;height:3em;width:6em;" onclick="postEvent()">Post</button>
               </div>
             </div>
           </div>
@@ -116,16 +117,21 @@
           let issueName= document.getElementById('eventTitle').value;
           let issueLocation= document.getElementById('eventLocation').value;
           let issueDesc=document.getElementById('eventDesc').value;
+          let issueImage=document.getElementById("imgData").value;
+
 
           document.getElementById('eventTitle').value= '';
           document.getElementById('eventLocation').value= '';
           document.getElementById('eventDesc').value= '';
+          document.getElementById('imgData').value= '';
 
 
-          axios.post('',{
+          axios.post('http://localhost:3000/issue',{
             issueName:issueName,
 	          issueLocation:issueLocation,
 	          issueDesc:issueDesc,
+            issueImage:issueImage
+            
           })
           .then(function(res){
             console.log(res);
