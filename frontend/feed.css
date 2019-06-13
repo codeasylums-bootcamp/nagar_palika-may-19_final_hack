@@ -18,7 +18,7 @@ body {
   padding: 0;
   background-image: url("img/img4.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
 
   font-family: 'Dosis', sans-serif;
 }
