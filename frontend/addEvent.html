@@ -83,6 +83,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title">Title</h5>
+<<<<<<< HEAD
                 <textarea style="background:grey;width:100%;border-radius:.5em;color:white;"></textarea>
               </div>
               <div class="card-body">
@@ -98,6 +99,23 @@
               </div>
               <div class="card-body">
                 <button type="submit" style="background:black; border-radius:.5em;height:3em;width:12em;color:white;padding:0 0 .15em 0;">Post</button>
+=======
+                <textarea style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventTitle"></textarea>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">location</h5>
+                <textarea rows="3" style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventLocation"></textarea>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Description</h5>
+                <textarea rows="10" style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventDesc"></textarea>
+              </div>
+              <div class="card-body">
+                <button type="button" style="background:#f2f4f6; border-radius:.5em;height:3em;" onclick="uploadImage()">Upload image</button>
+              </div>
+              <div class="card-body">
+                <button type="submit" style="background:#f2f4f6; border-radius:.5em;height:3em;width:6em;" onclick="postEvent()">Post</button>
+>>>>>>> 973fa2c23ac55d3b16d0aa574ae2484b4b453784
               </div>
             </div>
           </div>
@@ -106,6 +124,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<<<<<<< HEAD
     <script src="js/vendor/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="js/vendor/bootstrap.min.js"></script>
@@ -117,6 +136,36 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
+=======
+    <script type="text/javascript">
+    
+        function postEvent(){
+          let issueName= document.getElementById('eventTitle').value;
+          let issueLocation= document.getElementById('eventLocation').value;
+          let issueDesc=document.getElementById('eventDesc').value;
+
+>>>>>>> 973fa2c23ac55d3b16d0aa574ae2484b4b453784
+
+          document.getElementById('eventTitle').value= '';
+          document.getElementById('eventLocation').value= '';
+          document.getElementById('eventDesc').value= '';
+
+
+          axios.post('',{
+            issueName:issueName,
+	          issueLocation:issueLocation,
+	          issueDesc:issueDesc,
+          })
+          .then(function(res){
+            console.log(res);
+          })
+          .catch(function(error){
+            console.log(error);
+          })
+
+        }
+    
+    </script>
 
   </body>
 </html>
