@@ -34,6 +34,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
 
@@ -78,27 +80,8 @@
                   <div class="profile-pic" style="background:url('https://avatars1.githubusercontent.com/u/1594650?v=3&s=460');background-size: cover;">
                   </div>
                 </a>
-
-                <div class="name">Abhijeet S. Sutar</div>
-                <div class="username">ajduke</div>
-                <div class="about-me">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque maxime asperiores voluptatibus, animi, corporis dolor sequi quasi magni voluptas perferendis ipsa iste accusamus quis id illo tempore, debitis atque nemo!</div>
-                <div class="stats">
-                  <div class="item followers">
-                    <span class="num">36</span>
-                    <div class="text">Followers</div>
-                  </div>
-                  <div class="item stars">
-                    <span class="num">622</span>
-                    <div class="text">Stars</div>
-                  </div>
-                  <div class="item following">
-                    <span class="num">177</span>
-                    <div class="text">Following</div>
-                  </div>
-                  <div class="item repos">
-                    <span class="num">177</span>
-                    <div class="text">Repositories</div>
-                  </div>
+                <div id="profile">
+                  
                 </div>
 
             </div>
@@ -106,13 +89,13 @@
 
 
 
-          <div class="col-lg-5 ">
+          <div class="col-lg-5 " id="addCard">
             <div class="card" style="width:100%;box-shadow: 5px 10px 8px #888888;background:#731DD8;margin-top:7%;">
               <div class="card-body">
-                <a href="profiles.htm" style="color:white;"><h5 class="card-title" style="padding:.7em 0 0 0;">Add event</h5></a>
+                <a href="addEvent.html" style="color:white;"><h5 class="card-title" style="padding:.7em 0 0 0;" >Add event</h5></a>
               </div>
             </div>
-            <br>
+            <!-- <br>
             <div class="card" style="width:100%;box-shadow: 5px 10px 8px #888888;">
               <img class="card-img-top" src="img/img2.jpg" alt="Card image cap">
               <div class="card-body">
@@ -131,9 +114,12 @@
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
               <div class="card-body">
+                <div>
+                  Issue Status: 
+                </div>
                 <a href="#" class="card-link">Card link</a>
               </div>
-            </div>
+            </div> -->
           </div>
 
 
@@ -175,6 +161,7 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
+    <script src="feed.js"></script>
 
   </body>
 </html>

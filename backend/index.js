@@ -9,7 +9,7 @@ const port=3000;
 mongoose.connect("mongodb+srv://frozencurry:easy@cluster3105-tn8ee.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true},function(err){
     if(err)
     {
-        console.log(err);
+        console.log("mongoose not connected");
     }
     else{
         console.log("mongoose connected")

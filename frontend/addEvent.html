@@ -66,7 +66,7 @@
 
     <div class="container-fluid" style="margin-top:3%;">
         <div class="row">
-
+            <form action='http://localhost:3000/issue' method="post" enctype="multipart/form-data" id="form1">
           <div class="offset-lg-3 col-lg-5 ">
             <div class="card" style="width:100%;border-radius:1em;background-color:lightgrey;opacity:0.8;">
               <div class="card-body">
@@ -74,27 +74,29 @@
                 <h2 class="card-title">Add Event</h2>
                 </center>
               </div>
+              
               <div class="card-body">
                 <h5 class="card-title">Title</h5>
-                <textarea style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventTitle"></textarea>
+                <input style="background:#f2f4f6;width:100%;border-radius:.5em;" name="issueId" id="issueId" />
               </div>
               <div class="card-body">
                 <h5 class="card-title">location</h5>
-                <textarea rows="3" style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventLocation"></textarea>
+                <input rows="3" style="background:#f2f4f6;width:100%;border-radius:.5em;"name="issueLocation" id="issueLocation" />
               </div>
               <div class="card-body">
                 <h5 class="card-title">Description</h5>
-                <textarea rows="10" style="background:#f2f4f6;width:100%;border-radius:.5em;" id="eventDesc"></textarea>
+                <input rows="10" style="background:#f2f4f6;width:100%;border-radius:.5em;" name="issueDesc" id="issueDesc" />
               </div>
               <div class="card-body">
                   <h5 class="card-title">Upload Image</h5>
-                <input type="file" id="imgData" >
+                <input type="file" name="issueImage" id="issueImage" >
               </div>
               <div class="card-body">
-                <button type="submit" style="background:#f2f4f6; border-radius:.5em;height:3em;width:6em;" onclick="postEvent()">Post</button>
+                <button type="submit" style="background:#f2f4f6; border-radius:.5em;height:3em;width:6em;">Post</button>
               </div>
             </div>
           </div>
+          </form>
         </div>
       </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -111,7 +113,19 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
-    <script type="text/javascript">
+
+    <script>
+    $('#form1')
+    .ajaxForm({
+        url : 'http://localhost:3000/issue', // or whatever
+        dataType : 'json',
+        success : function (response) {
+            alert("The server says: " + response);
+        }
+    })
+;
+    </script>
+    <!-- <script type="text/javascript">
 
         function postEvent(){
           let issueName= document.getElementById('eventTitle').value;
@@ -142,7 +156,7 @@
 
         }
 
-    </script>
+    </script> -->
 
   </body>
 </html>

@@ -47,6 +47,20 @@ router.get("/",(req,res)=>{
 })
 
 
+router.put('/:issueTitle',function(req,res){
+    console.log('put mei hu mai');
+    const id=req.params.issueTitle;
+    const newissueStatus = 'pending'
+    
+    issueModel.updateOne({"issueId":id},{$set:{"issueStatus":newissueStatus}})
+    .exec()
+    .then(answer=>{
+        res.json(answer).status(200);
+    })
+
+})
+
+
 
 
 

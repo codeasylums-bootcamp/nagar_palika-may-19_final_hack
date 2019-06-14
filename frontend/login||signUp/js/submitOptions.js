@@ -1,4 +1,4 @@
-
+localStorage.clear();
 function userLoginForm(){
     document.getElementById('service').innerHTML=`<div class="container">
     <div class="row d-flex justify-content-center">
@@ -13,9 +13,9 @@ function userLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="userEmail" name="email" />
+            <input  required="true" type="email" id="userEmail" name="email" />
             <label for="userPassword">Password:</label>
-            <input
+            <input required="true"
             type="password" 
             id="userPassword" 
             name="password" 
@@ -43,9 +43,9 @@ function ngoLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="ngoEmail" name="email" />
+            <input required="true" type="email" id="ngoEmail" name="email" />
             <label for="password">Password:</label>
-            <input
+            <input required="true"
             type="password" 
             id="ngoPassword" 
             name="password" 
@@ -73,9 +73,9 @@ function restaurantLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="restEmail" name="email" />
+            <input required="true" type="email" id="restEmail" name="email" />
             <label for="password">Password:</label>
-            <input
+            <input required="true"
             type="password" 
             id="restPassword" 
             name="password" 
@@ -103,11 +103,11 @@ function staffLoginForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
           <label for="email">Email</label>
-            <input type="email" id="staffEmail" name="email" />
+            <input required="true" type="email" id="staffEmail" name="email" />
             <label for="staffPassword">Password:</label>
-            <input
+            <input required="true"
             type="password" 
-            id="password" 
+            id="staffPassword" 
             name="password" 
             />
 
@@ -138,27 +138,27 @@ function userSignUpForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
             <label for="userSignFirstname">Firstname</label>
-            <input 
+            <input required="true" 
             type="text" 
             id="userSignFirstname" 
             name="firstname" 
             />
 
             <label for="userLastname">Lastname</label>
-            <input type="text" id="userSignLastname" name="lastname" />
+            <input required="true" type="text" id="userSignLastname" name="lastname" />
 
             <label for="userUsername">Username</label>
-            <input type="text" id="userSignUsername" name="userUsername" />
+            <input required="true" type="text" id="userSignUsername" name="userUsername" />
 
             <label for="Date of Birth">Date of Birth</label>
-            <input type="text" id="userSignDateofBirth" name="Date of Birth" />
+            <input required="true" type="text" id="userSignDateofBirth" name="Date of Birth" />
 
             <label for="email">Email</label>
-            <input type="email" id="userSignEmail" name="email" />
+            <input required="true" type="email" id="userSignEmail" name="email" />
 
 
             <label for="userPassword">Password:</label>
-            <input
+            <input required="true"
             type="password" 
             id="userSignPassword" 
             name="password" 
@@ -186,26 +186,26 @@ function ngoSignUpForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
         <label for="firstname">NGO Name</label>
-        <input 
+        <input required="true" 
         type="text" 
         id="ngoSignName" 
         name="ngoName" 
         />
 
         <label for="lastname">NGO Code</label>
-        <input type="text" id="ngoSignCode" name="ngoCode" />
+        <input required="true" type="text" id="ngoSignCode" name="ngoCode" />
 
         <label for="username">Established Date</label>
-        <input type="text" id="dateOfEstd" name="ngoDateOfEstd" placeholder="DD/MM/YY"/>
+        <input required="true" type="text" id="dateOfEstd" name="ngoDateOfEstd" placeholder="DD/MM/YY"/>
 
         
 
         <label for="email">Email</label>
-        <input type="email" id="ngoSignEmail" name="email" />
+        <input required="true" type="email" id="ngoSignEmail" name="email" />
 
 
         <label for="password">Password:</label>
-        <input
+        <input required="true"
         type="password" 
         id="ngoSignPassword" 
         name="password" 
@@ -232,25 +232,25 @@ function restaurantSignUpForm(){
         <div class="col-lg-4"></div>
         <div class="col-lg-4 offset-lg-2">
         <label for="restName">Name of the Restaurant</label>
-        <input 
+        <input required="true" 
         type="text" 
         id="restSignName" 
         name="restName" 
         />
 
         <label for="email">Email</label>
-        <input type="email" id="restSignEmail" name="email" />
+        <input required="true" type="email" id="restSignEmail" name="email" />
 
 
         <label for="password">Password:</label>
-        <input
+        <input required="true"
         type="password" 
         id="restSignPassword" 
         name="password" 
         />
 
         <label for="lastname">Number of Persons that can be fed.</label>
-        <input 
+        <input required="true" 
         type="text" 
         id="foodAvailable" 
         name="foodAvailable" 
@@ -273,10 +273,19 @@ function userLogin(){
     let userEmail=document.getElementById('userEmail').value;
     let userPassword=document.getElementById('userPassword').value;
 
-    axios.post("",{
-        userEmail,
-        userPassword
+    axios.post("http://localhost:3000/user/login",{
+        email:userEmail,
+        password:userPassword
     }).then(res=>{
+        if(res.data.message==="Authentication successful")
+            {
+                localStorage.setItem('email',userEmail);
+                localStorage.setItem('userType',"user")
+                window.open('../feed.html',"_self");
+            }
+        else{
+            alert(res.data.message);
+        }
             
     }).catch(err=>{
         alert(err);
@@ -289,11 +298,19 @@ function ngoLogin(){
     let ngoPassword=document.getElementById('ngoPassword').value;
 
 
-    axios.post("",{
+    axios.post("http://localhost:3000/ngo/login",{
         email:ngoEmail,
         password:ngoPassword
     }).then(res=>{
-
+        if(res.data.message==="Authentication successful")
+            {
+                localStorage.setItem('email',ngoEmail);
+                localStorage.setItem('userType',"ngo");
+                window.open('../feed.html',"_self");
+            }
+        else{
+            alert(res.data.message);
+        }
     }).catch(err=>{
         alert(err);
     })
@@ -320,11 +337,19 @@ function staffLogin(){
     let staffEmail=document.getElementById('staffEmail').value;
     let staffPassword=document.getElementById('staffPassword').value;
 
-    axios.post("",{
+    axios.post("http://localhost:3000/staff/login",{
         email:staffEmail,
         password:staffPassword
     }).then(res=>{
-
+        if(res.data.message==="Authentication successful")
+            {
+                localStorage.setItem('email',staffEmail);
+                localStorage.setItem('userType',"staff")
+                window.open('../feed.html',"_self");
+            }
+        else{
+            alert(res.data.message);
+        }
     }).catch(err=>{
         alert(err);
     })
@@ -341,7 +366,7 @@ function userSignUp(){
     let userPassword=document.getElementById('userSignPassword').value;
 
 
-    axios.post("http://localhost:3000/user/login",{
+    axios.post("http://localhost:3000/user/",{
         firstname:userFirstname,
         lastname:userLastname,
         username:userUsername,
@@ -349,9 +374,21 @@ function userSignUp(){
         email:userEmail,
         password:userPassword
     }).then(res=>{
-        console.log("done")
+        if(res.data.message==="Account Created")
+        {
+            console.log("aaya hu yaha")
+            localStorage.setItem('email',userEmail);
+            localStorage.setItem('userType',"user")
+            window.open('../feed.html',"_self");
+        
+        }
+        else{
+           console.log(res);
+            alert(res.data.message);
+        }
+        
     }).catch(err=>{
-        console.log("error")
+        console.log(err)
     })
     
     
@@ -359,7 +396,7 @@ function userSignUp(){
 }
 
 function ngoSignUp(){
-
+    console.log
     let ngoName=document.getElementById('ngoSignName').value;
     let ngoCode=document.getElementById('ngoSignCode').value;
     let dateOfEstd=document.getElementById('dateOfEstd').value;
@@ -367,16 +404,25 @@ function ngoSignUp(){
     let password=document.getElementById('ngoSignPassword').value;
 
 
-    axios.post("",{
-        ngoName,
-        ngoCode,
-        dateOfEstd,
-        email,
-        password
+    axios.post("http://localhost:3000/ngo",{
+        ngoName:ngoName,
+        ngoCode:ngoCode,
+        dateOfEstd:dateOfEstd,
+        email:email,
+        password:password
     }).then(res=>{
+        if(res.data.message==="Account Created")
+        {
+            localStorage.setItem('email',email);
+            localStorage.setItem('userType',"ngo");
+            window.open('../feed.html',"_self");
+        }
+        else{
+            alert(res.data.message);
+        }
 
-    }).catch(res=>{
-
+    }).catch(err=>{
+        alert(err);
     })
 
 }

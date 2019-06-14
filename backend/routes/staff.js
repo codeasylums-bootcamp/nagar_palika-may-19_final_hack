@@ -13,6 +13,10 @@ router.get('/:email', function(req,res){
             res.json(user)
     })
 })
+
+
+
+
 router.post('/',function(req,res){
     const newStaff=new staffModel({
         _id: new mongoose.Types.ObjectId,

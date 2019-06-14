@@ -41,6 +41,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
 
@@ -93,8 +95,8 @@
       </div>
         <div class="row">
         <div class="offset-lg-1 col-lg-10">
-          <div id="list">
-            <div class="container container1">
+          <div id="list1">
+            <!-- <div class="container container1">
                 <div class="todo-list">
                     <div class="item-card">
                         <div class="note-title">
@@ -177,8 +179,10 @@
             </div>
 
 
-          </div>
+          </div> -->
         </div>
+        <div id="list2"></div>
+        <div id="list3"></div>
       </div>
     </div>
 
@@ -196,13 +200,16 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
+    <!-- <script src="staffLogin.js"></script> -->
   </body>
 
   <script type="text/javascript">
 function listRestro(){
  document.getElementById("restro").style.backgroundColor = "lightblue";
   document.getElementById("society").style.backgroundColor = "blue";
-document.getElementById("list").innerHTML=`
+  document.getElementById("list1").innerHTML='';
+  document.getElementById("list3").innerHTML='';
+document.getElementById("list2").innerHTML=`
 <div class="container container1">
     <div class="todo-list">
         <div class="item-card">
@@ -288,92 +295,141 @@ document.getElementById("list").innerHTML=`
 
 }
 
+            let issueId=[];
+            let issueDesc=[];
+            let issueStatus=[];
+            let issueImageUrl=[];
+            
+
 function listSociety(){
-   document.getElementById("society").style.backgroundColor = "lightblue";
-     document.getElementById("restro").style.backgroundColor = "blue"
-document.getElementById("list").innerHTML=`
-<div class="container container1">
-    <div class="todo-list">
-        <div class="item-card">
-            <div class="note-title">
-                Issue 1
+    console.log("yaha hu main")
+    axios.get('http://localhost:3000/issue')
+    .then(res=>{
+      console.log(res.data)
+        document.getElementById("society").style.backgroundColor = "lightblue";
+         document.getElementById("restro").style.backgroundColor = "blue"
+         document.getElementById("list1").innerHTML='';
+         document.getElementById("list2").innerHTML='';
+         document.getElementById("list3").innerHTML='';
+         
+        for(let i=0;i<res.data.length;i++)
+        {   
+             issueId[i]=res.data[i].issueId;
+             issueDesc[i]=res.data[i].issueDesc;
+             issueStatus[i]=res.data[i].issueStatus;
+             issueImageUrl[i]=res.data[i].issueImageUrl;
+              
+
+            if(issueStatus[i]==='pending')
+            {
+              document.getElementById("list1").innerHTML+=`
+            <div class="container container1" id="a${i}">
+          <div class="todo-list" id="issues_list">
+            <div class="item-card">
+                <div class="note-title">
+                    ${issueId[i]}
+                </div>
+                <div class="note-desc">
+                    ${issueDesc[i]}
+                </div>
+                <div style="padding: 10px 5px 8px 10px;">
+                  <button class="btn btn-success" style="width:10%;" onclick="pending(${i})" >pending</button>
+                </div>
             </div>
-            <div class="note-desc">
-                The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
             </div>
-            <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
             </div>
-        </div>
-        <div class="item-card">
-            <div class="note-title">
-                Issue 2
+             `
+            }
+
+            if(issueStatus[i]==='solved')
+            {
+              document.getElementById("list3").innerHTML+=`
+            <div class="container container1" id="a${i}">
+          <div class="todo-list" id="issues_list">
+            <div class="item-card">
+                <div class="note-title">
+                    ${issueId[i]}
+                </div>
+                <div class="note-desc">
+                    ${issueDesc[i]}
+                </div>
+                <div style="padding: 10px 5px 8px 10px;">
+                  <button class="btn btn-success" style="width:10%;" onclick="" >solved</button>
+                </div>
             </div>
-            <div class="note-desc">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae hic obcaecati saepe alias quos, pariatur vero tempora nostrum, iste est officia perspiciatis ut optio beatae sunt voluptatum. Laboriosam, ipsam quidem.
             </div>
-            <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
             </div>
-        </div>
-        <div class="item-card">
-            <div class="note-title">
-                Issue 3
+             `
+            }
+            if(issueStatus[i]==='unsolved')
+            {
+            document.getElementById("list2").innerHTML+=`
+            <div class="container container1" id="a${i}">
+        <div class="todo-list" id="issues_list">
+            <div class="item-card">
+                <div class="note-title">
+                    ${issueId[i]}
+                </div>
+                <div class="note-desc">
+                    ${issueDesc[i]}
+                </div>
+                <div style="padding: 10px 5px 8px 10px;">
+                  <button class="btn btn-success" style="width:10%;" onclick="accept(${i})" >Accept</button>
+                </div>
             </div>
-            <div class="note-desc">
-                The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
             </div>
-            <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
             </div>
-        </div>
-        <div class="item-card">
-            <div class="note-title">
-                Issue 4
+             `
+          }
+        }
+    })
+    }
+
+
+function accept(x){
+    document.getElementById(`a${x}`).innerHTML=`<div class="todo-list" id="issues_list">
+            <div class="item-card">
+                <div class="note-title">
+                    ${issueId[x]}
+                </div>
+                <div class="note-desc">
+                    ${issueDesc[x]}
+                </div>
+                <div style="padding: 10px 5px 8px 10px;">
+                  <button class="btn btn-success" style="width:10%;" onclick="pending(${x})" >pending</button>
+                </div>
             </div>
-            <div class="note-desc">
-                The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-            </div>
-            <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-            </div>
-        </div>
-        <div class="item-card">
-            <div class="note-title">
-                Issue 5
-            </div>
-            <div class="note-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, accusamus minima ipsa, illum facilis quidem labore fugit veritatis enim quibusdam quas dolor optio esse sunt aperiam consequuntur deserunt repellat laboriosam!
-            </div>
-            <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-            </div>
-        </div>
-        <div class="item-card">
-            <div class="note-title">
-                Issue 4
-            </div>
-            <div class="note-desc">
-                The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-            </div>
-            <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-            </div>
-        </div>
-        <div class="item-card">
-            <div class="note-title">
-                Issue 4
-            </div>
-            <div class="note-desc">
-                The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-            </div>
-            <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-            </div>
-        </div>
-    </div>
-</div>
-`
+            </div>`
+
+            console.log(issueId[x]);
+    axios.put(`http://localhost:3000/issue/${issueId[x]}`,{
+      issueStatus:'pending'
+    })
+    .then(res=>{
+      console.log('done');
+      console.log(res);
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+
+
+
 }
+
+function pending(x){
+  axios.put(`http://localhost:3000/issue/${issueId[x]}`,{
+      issueStatus:'solved'
+    })
+    .then(res=>{
+      console.log('done');
+
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+}
+
+
 </script>
 </html>
