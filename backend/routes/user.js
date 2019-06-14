@@ -15,6 +15,7 @@ router.get('/:email', function(req,res){
     })
 })
 router.post('/',function(req,res){
+    console.log("inside post")
     const newUser=new userModel({
         _id: new mongoose.Types.ObjectId,
         firstname:req.body.firstname,
@@ -33,7 +34,7 @@ router.post('/',function(req,res){
             newUser.save();
             res.json({"message": "Account Created"})
         }
-    })
+    }).catch
 })
 
 router.post('/login',function(req,res){
@@ -44,27 +45,19 @@ router.post('/login',function(req,res){
         {
             if(bcryptjs.compareSync(req.body.password,user.password))
             {
-                const token=jwt.sign({
-                    email:user.email,
-                    _id:user._id
-                },
-                'secret',
-                {
-                    expiresIn:'1h'
-                })
-
+               
                 res.json({
                     "message":"Authentication successful",
-                    "token":token
+                    
                 }).status(200)
                 console.log("last");
             }
             else{
-                res.json({"mesaage":"Authentication failed1"})
+                res.json({"mesaage":"Authentication failed"})
             }
         }
         else{
-            res.json({"message":"Authentication failed2"})
+            res.json({"message":"Authentication failed"})
         }
     })
 })

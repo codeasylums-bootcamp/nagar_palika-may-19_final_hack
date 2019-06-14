@@ -11,4 +11,4 @@ const ngoSchema=mongoose.Schema({
     rating:{type:Number}
 })
 
-mongoose.exports=mongoose.model('ngo',ngoSchema);
+module.exports=mongoose.model('ngo',ngoSchema);

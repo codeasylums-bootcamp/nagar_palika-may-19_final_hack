@@ -11,26 +11,29 @@ const issueModel=require('../models/issueModel.js');
 
 router.post('/', upload.single('issueImage'),function(req,res){
     console.log(req.file);
+    console.log("req.bosy waala saman ");
+    console.log(req.body);
     console.log("ye wla post se pele hua")
     const newIssue=new issueModel({
         _id: new mongoose.Types.ObjectId(),
         issueId:req.body.issueId,
         issueDesc:req.body.issueDesc,
         issueLocation:req.body.issueLocation,
-        issueStatus:req.body.issueStatus,
+        //issueStatus:req.body.issueStatus,
         issueImageUrl:req.file.path
         
     })
     
     newIssue.save()
-    
     .then(res=>{
         
         console.log(res);
         console.log("issue reported succesfully")
-    })
     
+   
 })
+})
+
 
 router.get("/",(req,res)=>{
     issueModel.find()
