@@ -23,15 +23,17 @@ router.post('/', upload.single('issueImage'),function(req,res){
         issueImageUrl:req.file.path
         
     })
-    
     newIssue.save()
-    .then(res=>{
-        
+    .then(function(res){
+    
         console.log(res);
         console.log("issue reported succesfully")
-    
+        
    
-})
+    }).catch(err=>{
+        console.log(err);
+    })
+
 })
 
 

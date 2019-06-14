@@ -6,6 +6,7 @@ const mongoose=require('mongoose');
 const ngoModel=require('../models/ngoModel.js')
 
 router.get('/:email', function(req,res){
+    console.log("into the get request")
     const email=req.params.email;
     ngoModel.findOne({
         email:email
