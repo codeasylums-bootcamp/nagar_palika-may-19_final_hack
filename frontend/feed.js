@@ -74,8 +74,8 @@ if(userType==="user"){
             let userName = res.data.username;
             let firstName= res.data.firstname;
             let lastName= res.data.lastname;
-            let dateOfBirth= res.data.dateofbirth;
-            let issueDone= res.data.issuDone;
+            let dateOfBirth= res.data.dateOfbirth;
+            let issueDone= res.data.issueDone;
             let issueReported= res.data.issueReported;
             let rating= res.data.rating;
 
