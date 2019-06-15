@@ -370,7 +370,7 @@ function userSignUp(){
         firstname:userFirstname,
         lastname:userLastname,
         username:userUsername,
-        dateofBirth:userDateofBirth,
+        dateOfBirth:userDateofBirth,
         email:userEmail,
         password:userPassword
     }).then(res=>{
