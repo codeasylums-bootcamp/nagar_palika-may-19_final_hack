@@ -11,11 +11,7 @@ axios.get('http://localhost:3000/issue')
         let issueImageUrl=res.data[i].issueImageUrl;
 
 
-        if(issueStatus=='0')
-            {var status='unsolved';}
-        else{
-            var status='solved';
-        }
+        
 
     //var issue= document.getElementById('addCard').value;
 
@@ -31,14 +27,14 @@ axios.get('http://localhost:3000/issue')
                 <p class="card-text" >${issueDesc}</p>
               </div>
               <div class="card-body">
-                <a href="#" class="card-link">Card link</a> <span>Status: ${status}</span>
+                <a href="#" class="card-link">Card link</a> <span>Status: ${issueStatus}</span>
               </div>
             </div>`
 
     }
 })
 
-console.log("Pofile aya kya")
+
 let userType= localStorage.getItem('userType')
 let userEmail = localStorage.getItem('email');
 

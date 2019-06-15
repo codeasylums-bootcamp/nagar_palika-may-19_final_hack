@@ -18,7 +18,7 @@ router.post('/', upload.single('issueImage'),function(req,res){
         _id: new mongoose.Types.ObjectId(),
         issueId:req.body.issueId,
         issueDesc:req.body.issueDesc,
-        issueLocation:req.body.issueLocation,
+        //issueLocation:req.body.issueLocation,
         //issueStatus:req.body.issueStatus,
         issueImageUrl:req.file.path
         
@@ -60,9 +60,16 @@ router.put('/:issueTitle',function(req,res){
 
 })
 
+router.put('/location/:issueTitle',function(req,res){
+    const id=req.params.issueTitle;
+    const newissueLocation = req.body.issueLocation
 
-
-
+    issueModel.updateOne({"issueId":id},{$set:{"issueLocation":newissueLocation}})
+    .exec()
+    .then(answer=>{
+        res.json(answer).status(200);
+    })
+})
 
 
 
