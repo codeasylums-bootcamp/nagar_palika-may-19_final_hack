@@ -10,10 +10,7 @@ const issueModel=require('../models/issueModel.js');
 
 
 router.post('/', upload.single('issueImage'),function(req,res){
-    console.log(req.file);
-    console.log("req.bosy waala saman ");
-    console.log(req.body);
-    console.log("ye wla post se pele hua")
+    
     const newIssue=new issueModel({
         _id: new mongoose.Types.ObjectId(),
         issueId:req.body.issueId,
@@ -27,9 +24,10 @@ router.post('/', upload.single('issueImage'),function(req,res){
         
     })
     newIssue.save()
-    .then(function(res){
-    
-        console.log(res);
+    .then(function(response){
+        res.json('issue reported successfully').status(200);
+
+        console.log(response)
         console.log("issue reported succesfully")
          
     }).catch(err=>{
