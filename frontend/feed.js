@@ -10,8 +10,8 @@ axios.get('http://localhost:3000/issue')
         let issueStatus=res.data[i].issueStatus;
         let issueImageUrl=res.data[i].issueImageUrl;
 
-
-        
+        console.log('issue location is this')
+        console.log(res.data[i].issueLocationLat)
 
     //var issue= document.getElementById('addCard').value;
 

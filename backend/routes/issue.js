@@ -18,9 +18,12 @@ router.post('/', upload.single('issueImage'),function(req,res){
         _id: new mongoose.Types.ObjectId(),
         issueId:req.body.issueId,
         issueDesc:req.body.issueDesc,
-        //issueLocation:req.body.issueLocation,
+        issueLocationLat:req.body.issueLocationLat,
+        issueLocationLng:req.body.issueLocationLng,
         //issueStatus:req.body.issueStatus,
         issueImageUrl:req.file.path
+
+        
         
     })
     newIssue.save()
@@ -28,8 +31,7 @@ router.post('/', upload.single('issueImage'),function(req,res){
     
         console.log(res);
         console.log("issue reported succesfully")
-        
-   
+         
     }).catch(err=>{
         console.log(err);
     })
@@ -60,16 +62,16 @@ router.put('/:issueTitle',function(req,res){
 
 })
 
-router.put('/location/:issueTitle',function(req,res){
-    const id=req.params.issueTitle;
-    const newissueLocation = req.body.issueLocation
+// router.put('/location/:issueTitle',function(req,res){
+//     const id=req.params.issueTitle;
+//     const newissueLocation = req.body.issueLocation
 
-    issueModel.updateOne({"issueId":id},{$set:{"issueLocation":newissueLocation}})
-    .exec()
-    .then(answer=>{
-        res.json(answer).status(200);
-    })
-})
+//     issueModel.updateOne({"issueId":id},{$set:{"issueLocation":newissueLocation}})
+//     .exec()
+//     .then(answer=>{
+//         res.json(answer).status(200);
+//     })
+// })
 
 
 

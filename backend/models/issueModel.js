@@ -4,7 +4,8 @@ const issueSchema= mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     issueId:{type: String, required: true},
     issueDesc:{type: String, required:true },
-    issueLocation:{type:Array},
+    issueLocationLat:{type:String},
+    issueLocationLng:{type:String},
     issueStatus:{type: String, required: true, default:'unsolved'},
     issueImageUrl:{type: String}
    
