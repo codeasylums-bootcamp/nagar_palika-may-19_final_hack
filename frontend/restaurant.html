@@ -60,11 +60,11 @@
                <!-- Dropdown -->
                 <li class="dropdown">
                   <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Pages
+                    Logout
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="generic.html">Generic</a>
-                    <a class="dropdown-item" href="elements.html">Elements</a>
+                    <a class="dropdown-item">Others</a>
+                  <a class="dropdown-item pointer" onclick="openIndex()">Logout</a>
                   </div>
                 </li>
               </ul>
@@ -76,7 +76,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3">
-              <div class="wrapper" style="width:100%;">
+              <center>
+              <div class="wrapper" style="width:90%;">
                 <a href="https://github.com/ajduke" target="_blank">
                   <div class="profile-pic" style="background:url('https://avatars1.githubusercontent.com/u/1594650?v=3&s=460');background-size: cover;">
                   </div>
@@ -86,6 +87,7 @@
                 </div>
 
             </div>
+          </center>
           </div>
 
 
@@ -155,7 +157,8 @@
 
 
           <div class="col-lg-4">
-            <div class="card" style="background:rgba(40,57,101,.9);width:100%;box-shadow: 5px 10px 8px #888888;margin-top:9%;">
+            <center>
+            <div class="card" style="background:rgba(40,57,101,.9);width:90%;box-shadow: 5px 10px 8px #888888;margin-top:9%;">
               <div class="card-body">
                 <h2 class="card-title" style="color:white">Top Contributors</h2>
               </div>
@@ -172,8 +175,10 @@
                  <li><a href="">List item</a></li>
                </ol>
              </div>
+           </center>
            </div>
          </div>
+
        </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -190,7 +195,12 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
-    <script src="feed.js"></script>
+    <!-- <script src="feed.js"></script> -->
+    <script>
+    function openIndex(){
+      window.open("index.html",'_self');
+    }
+    </script>
 
   </body>
 </html>

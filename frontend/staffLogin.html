@@ -41,7 +41,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
@@ -66,11 +66,11 @@
                <!-- Dropdown -->
                 <li class="dropdown">
                   <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Pages
+                    Logout
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="generic.html">Generic</a>
-                    <a class="dropdown-item" href="elements.html">Elements</a>
+                    <a class="dropdown-item">Others</a>
+                  <a class="dropdown-item pointer" onclick="openIndex()">Logout</a>
                   </div>
                 </li>
               </ul>
@@ -85,18 +85,21 @@
           <table style="width:100%;">
             <thead>
               <tr>
-                <td >
-                  <button type="submit" id="restro" class="btn btn-primary" onclick="listRestro()" style="width:100%;height:3em;border-radius:.5em;"><h2>Restro</h2></button>
+                <td>
+                  <button type="submit" id="restro" style="color:rgb(200, 204, 209);margin-top:1.5%;background-color:rgb(2, 15, 35);border-color:transparent;width:100%;border-radius:.5em;" onclick="listRestro()"><h2 style="color:rgb(200, 204, 209);">Restro</h2></button>
                 </td>
                 <td>
-                  <button type="submit" id="society" class="btn btn-primary" onclick="listSociety()" style="width:100%;height:3em;border-radius:.5em;"><h2>Society</h2></button>
-                </td>
-          </table>
+                  <button type="submit" id="society" style="color:rgb(200, 204, 209);background:rgb(2, 15, 35);margin-top:1.5%;border-color:transparent;width:100%;border-radius:.5em;" onclick="listSociety()"><h2 style="color:rgb(200, 204, 209);">Society</h2></button>
+              </td>
+            </tr>
+          </thead>
+        </table>
       </div>
+
         <div class="row">
         <div class="offset-lg-1 col-lg-10">
           <div id="list1">
-            <!-- <div class="container container1">
+            <!-- <div class="container">
                 <div class="todo-list">
                     <div class="item-card">
                         <div class="note-title">
@@ -200,13 +203,17 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
-    <!-- <script src="staffLogin.js"></script> -->
-  </body>
 
+  </body>
+  <script>
+  function openIndex(){
+    window.open("index.html",'_self');
+  }
+  </script>
   <script type="text/javascript">
 function listRestro(){
- document.getElementById("restro").style.backgroundColor = "lightblue";
-  document.getElementById("society").style.backgroundColor = "blue";
+ document.getElementById("restro").style.backgroundColor = "rgba(4, 23, 53,.9)";
+  document.getElementById("society").style.backgroundColor = "rgb(2, 15, 35)";
   document.getElementById("list1").innerHTML='';
   document.getElementById("list3").innerHTML='';
 document.getElementById("list2").innerHTML=`
@@ -220,7 +227,7 @@ document.getElementById("list2").innerHTML=`
                 The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
             </div>
             <div style="padding: 10px 5px 8px 10px;">
-              <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
+              <button type="submit" class="btn btn-success button">Accept</button>
             </div>
         </div>
         <div class="item-card">
@@ -299,32 +306,31 @@ document.getElementById("list2").innerHTML=`
             let issueDesc=[];
             let issueStatus=[];
             let issueImageUrl=[];
-            
+
 
 function listSociety(){
     console.log("yaha hu main")
     axios.get('http://localhost:3000/issue')
     .then(res=>{
       console.log(res.data)
-        document.getElementById("society").style.backgroundColor = "lightblue";
-         document.getElementById("restro").style.backgroundColor = "blue"
+        document.getElementById("society").style.backgroundColor = "rgba(4, 23, 53,.9)";
+         document.getElementById("restro").style.backgroundColor = "rgb(2, 15, 35)";
          document.getElementById("list1").innerHTML='';
          document.getElementById("list2").innerHTML='';
          document.getElementById("list3").innerHTML='';
-         
+
         for(let i=0;i<res.data.length;i++)
-        {   
+        {
              issueId[i]=res.data[i].issueId;
              issueDesc[i]=res.data[i].issueDesc;
              issueStatus[i]=res.data[i].issueStatus;
              issueImageUrl[i]=res.data[i].issueImageUrl;
-              
+
 
             if(issueStatus[i]==='pending')
             {
               document.getElementById("list1").innerHTML+=`
-            <div class="container container1" id="a${i}">
-          <div class="todo-list" id="issues_list">
+
             <div class="item-card">
                 <div class="note-title">
                     ${issueId[i]}
@@ -336,16 +342,14 @@ function listSociety(){
                   <button class="btn btn-success" style="width:10%;" onclick="pending(${i})" >pending</button>
                 </div>
             </div>
-            </div>
-            </div>
+
              `
             }
 
             if(issueStatus[i]==='solved')
             {
               document.getElementById("list3").innerHTML+=`
-            <div class="container container1" id="a${i}">
-          <div class="todo-list" id="issues_list">
+
             <div class="item-card">
                 <div class="note-title">
                     ${issueId[i]}
@@ -357,15 +361,13 @@ function listSociety(){
                   <button class="btn btn-success" style="width:10%;" onclick="" >solved</button>
                 </div>
             </div>
-            </div>
-            </div>
+
              `
             }
             if(issueStatus[i]==='unsolved')
             {
             document.getElementById("list2").innerHTML+=`
-            <div class="container container1" id="a${i}">
-        <div class="todo-list" id="issues_list">
+
             <div class="item-card">
                 <div class="note-title">
                     ${issueId[i]}
@@ -377,8 +379,7 @@ function listSociety(){
                   <button class="btn btn-success" style="width:10%;" onclick="accept(${i})" >Accept</button>
                 </div>
             </div>
-            </div>
-            </div>
+
              `
           }
         }

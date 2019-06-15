@@ -10,26 +10,28 @@ const issueModel=require('../models/issueModel.js');
 
 
 router.post('/', upload.single('issueImage'),function(req,res){
-    console.log(req.file);
-    console.log("req.bosy waala saman ");
-    console.log(req.body);
-    console.log("ye wla post se pele hua")
+    // console.log(req.file);
+    // console.log("req.bosy waala saman ");
+    // console.log(req.body);
+    // console.log("ye wla post se pele hua")
     const newIssue=new issueModel({
         _id: new mongoose.Types.ObjectId(),
         issueId:req.body.issueId,
         issueDesc:req.body.issueDesc,
-        //issueLocation:req.body.issueLocation,
+        issueLocationLat:req.body.issueLocationLat,
+        issueLocationLng:req.body.issueLocationLng,
         //issueStatus:req.body.issueStatus,
         issueImageUrl:req.file.path
-        
+
+
+
     })
     newIssue.save()
-    .then(function(res){
-    
-        console.log(res);
+    .then(function(response){
+        res.json('Issue Reported Successfully')
+        console.log(response);
         console.log("issue reported succesfully")
-        
-   
+
     }).catch(err=>{
         console.log(err);
     })
@@ -51,7 +53,7 @@ router.put('/:issueTitle',function(req,res){
     console.log('put mei hu mai');
     const id=req.params.issueTitle;
     const newissueStatus = 'pending'
-    
+
     issueModel.updateOne({"issueId":id},{$set:{"issueStatus":newissueStatus}})
     .exec()
     .then(answer=>{
@@ -60,16 +62,16 @@ router.put('/:issueTitle',function(req,res){
 
 })
 
-router.put('/location/:issueTitle',function(req,res){
-    const id=req.params.issueTitle;
-    const newissueLocation = req.body.issueLocation
+// router.put('/location/:issueTitle',function(req,res){
+//     const id=req.params.issueTitle;
+//     const newissueLocation = req.body.issueLocation
 
-    issueModel.updateOne({"issueId":id},{$set:{"issueLocation":newissueLocation}})
-    .exec()
-    .then(answer=>{
-        res.json(answer).status(200);
-    })
-})
+//     issueModel.updateOne({"issueId":id},{$set:{"issueLocation":newissueLocation}})
+//     .exec()
+//     .then(answer=>{
+//         res.json(answer).status(200);
+//     })
+// })
 
 
 

@@ -16,7 +16,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("img/img3.jpg");
+  background-image: url("img/img10.jpg");
   background-size: cover;
   /* background-repeat: no-repeat; */
 
@@ -30,9 +30,9 @@ body {
   padding: 1em;
   color: #fff;
    /* background: linear-gradient(to top, #731DD8 60%, #e5e5e5); */
-  background-color: rgba(40,57,101,.9);
+  background-color:rgba(40,57,101,.9);
   margin-top: 12%;
-  box-shadow: 0 0 1em rgba(55,55,55,.5);
+  box-shadow:  5px 10px 8px rgba(25, 0, 0,.5);
   color: #E4DFDA;
   border-radius: .4em;
 }
@@ -42,6 +42,7 @@ body {
   padding: .5em;
   font-family: 'PT Sans Narrow', sans-serif;
 }
+.pointer {cursor: pointer;}
 .profile-pic {
   width: 8em;
   height: 8em;

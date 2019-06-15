@@ -29,21 +29,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
         #map {
-          height: 50%;
-          width: 50%;
+          height: 30%;
+          width: 30%;
         }
+
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;}
       </style>
 
 
-    
+
   </head>
   <body>
-    
+
     <header class="default-header"  style="opacity:0.8;">
       <nav class="navbar navbar-expand-lg" >
         <div class="container">
@@ -64,11 +69,11 @@
 
                 <li class="dropdown">
                   <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Pages
+                    Logout
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="generic.html">Generic</a>
-                    <a class="dropdown-item" href="elements.html">Elements</a>
+                    <a class="dropdown-item">Others</a>
+                  <a class="dropdown-item pointer" onclick="openIndex()">Logout</a>
                   </div>
                 </li>
               </ul>
@@ -79,41 +84,61 @@
 
     <div class="container-fluid" style="margin-top:3%;">
         <div class="row">
-            <form action='http://localhost:3000/issue' method="post" enctype="multipart/form-data" id="form1">
+
           <div class="offset-lg-3 col-lg-5 ">
-            <div class="card" style="width:100%;border-radius:1em;background-color:lightgrey;opacity:0.8;">
-              <div class="card-body">
+            <form action='http://localhost:3000/issue' method="post" style="border-radius: 1em;background:rgba(4, 23, 53,.9);" enctype="multipart/form-data" id="form1" >
+            <!-- <div class="card" style="width:100%;border-radius:1em;background:rgba(40,57,101,.9);opacity:0.8;"> -->
+              <!-- <div class="card-body"> -->
                 <center>
-                <h2 class="card-title">Add Event</h2>
+                <h2 style="color:rgb(200, 204, 209);">Add Event</h2>
                 </center>
-              </div>
-              
+              <!-- </div> -->
+
+              <!-- <div class="card-body">
+                <h5 class="card-title">Title</h5> -->
+                <label style="color:rgb(200, 204, 209);font-weight:bold">Title</label>
+                <input type="text" style="background:rgba(2, 15, 35,.8);width:100%;border-radius:.5em;color:rgb(200, 204, 209);font-weight:300;" name="issueId" id="issueId" />
+              <!-- </div>
+
               <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <input style="background:#f2f4f6;width:100%;border-radius:.5em;" name="issueId" id="issueId" />
-              </div>
-              
+                <h5 class="card-title">Description</h5> -->
+                <label style="color:rgb(200, 204, 209);font-weight:bold">Description</label>
+                <input type="text" rows="10" style="background:rgba(2, 15, 35,.8);width:100%;border-radius:.5em;color:rgb(200, 204, 209);font-weight:300;" name="issueDesc" id="issueDesc" />
+              <!-- </div>
+
               <div class="card-body">
-                <h5 class="card-title">Description</h5>
-                <input rows="10" style="background:#f2f4f6;width:100%;border-radius:.5em;" name="issueDesc" id="issueDesc" />
-              </div>
+                <h5 class="card-title">Latitude</h5> -->
+                <label style="color:rgb(200, 204, 209);font-weight:bold">Latitude</label>
+                <input type="text" rows="10" style="background:rgba(2, 15, 35,.8);width:100%;border-radius:.5em;color:rgb(200, 204, 209);font-weight:300;" name="issueLocationLat" id="issueLocationLat" />
+              <!-- </div>
+
               <div class="card-body">
-                  <h5 class="card-title">Upload Image</h5>
-                <input type="file" name="issueImage" id="issueImage" >
-              </div>
+                <h5 class="card-title">Longitude</h5> -->
+                <label style="color:rgb(200, 204, 209);font-weight:bold">Longitude</label>
+                <input type="text" rows="10" style="background:rgba(2, 15, 35,.8);width:100%;border-radius:.5em;color:rgb(200, 204, 209);font-weight:300;" name="issueLocationLng" id="issueLocationLng" />
+              <!-- </div>
+
+
               <div class="card-body">
-                <button type="submit" style="background:#f2f4f6; border-radius:.5em;height:3em;width:6em;" onclick="return putLocation()">Post</button>
-              </div>
+                  <h5 class="card-title">Upload Image</h5> -->
+                  <label style="color:rgb(200, 204, 209);font-weight:bold">Upload image</label>
+                <input type="file" style="background: rgba(2, 15, 35,.8);width:100%;border-radius:.5em;color:rgb(200, 204, 209);font-weight:300;" name="issueImage" id="issueImage" >
+              <!-- </div>
+              <div class="card-body"> -->
+              <br><br>
+                <input type="submit" style="background:rgb(200, 204, 209); border-radius:.5em;height:3em;width:6em;font-weight:bold;color:rgb(2, 15, 35)" value="Post">
+              <!-- </div> -->
             </div>
+            </form>
           </div>
-          </form>
+
         </div>
-        
+
       </div>
 
       <br>
         <br>
-        <div id="map"></div>
+        <div style="margin-left: 35%; margin-bottom:2%" id="map"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -130,7 +155,13 @@
     <script src="js/submitOptions.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzLdcKEPCe4SQf3-cdSnq5vmh_MRaHCs&callback=initMap"
 async defer></script>
-    
+
+<script>
+function openIndex(){
+  window.open("index.html",'_self');
+}
+</script>
+
     <script>
       var map;
       var pos;
@@ -154,8 +185,11 @@ async defer></script>
             //infoWindow.setContent('Current Location.');
             //infoWindow.open(map);
             map.setCenter(pos);
+            console.log(pos)
+            document.getElementById('issueLocationLat').value=pos.lat;
+            document.getElementById('issueLocationLng').value=pos.lng;
 
-            
+
             addMarker(pos);
 
           }, function() {
@@ -186,25 +220,28 @@ async defer></script>
 
     }
 
-    function putLocation()
-      { 
 
-        console.log("haapy");
-        let issueTitle=document.getElementById('issueId').value;
-        setTimeout(function(){
-          axios.put(`http://localhost:3000/issue/location/${issueTitle}`,{
-            issueLocation : pos
-          }).then(res=>{
-            console.log(res)
-          })
-          .catch(err=>{
-            console.log(err)
-          })
-        },5000)
-     }
-  
 
-      
+    // function putLocation()
+    //   {
+
+    //     console.log("haapy");
+    //     let issueTitle=document.getElementById('issueId').value;
+    //     setTimeout(function(){
+    //       axios.put(`http://localhost:3000/issue/location/${issueTitle}`,{
+    //         issueLocation : pos
+    //       }).then(res=>{
+    //         console.log(res)
+    //       })
+    //       .catch(err=>{
+    //         console.log(err)
+    //       })
+    //     },5000)
+    //  }
+
+
+
+
     </script>
     <!-- <script>
     $('#form1')
@@ -237,7 +274,7 @@ async defer></script>
 	          issueLocation:issueLocation,
 	          issueDesc:issueDesc,
             issueImage:issueImage
-            
+
           })
           .then(function(res){
             console.log(res);
