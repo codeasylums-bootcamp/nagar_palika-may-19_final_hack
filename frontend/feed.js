@@ -4,7 +4,7 @@ axios.get('http://localhost:3000/issue')
 .then(res=>{
 
     for(let i=0;i<res.data.length;i++)
-    {   
+    {
         let issueTitle=res.data[i].issueId;
         let issueDesc=res.data[i].issueDesc;
         let issueStatus=res.data[i].issueStatus;
@@ -44,7 +44,7 @@ if(userType==="user"){
     .then(res =>{
 
 
-        
+
             let userName = res.data.username;
             let firstName= res.data.firstname;
             let lastName= res.data.lastname;
@@ -52,8 +52,8 @@ if(userType==="user"){
             let issuDone= res.data.issuDone;
             let issuReported= res.data.issueReported;
             let rating= res.data.rating;
-            
-    
+
+
     document.getElementById('profile').innerHTML+=`
     <div class="name">${firstName} ${lastName}</div>
     <div class="username">${userName}</div>
@@ -71,7 +71,7 @@ if(userType==="user"){
         <span class="num">${issueReported}</span>
         <div class="text">Issues Reported</div>
       </div>
-   
+
     </div>`
 })
 }
@@ -101,5 +101,3 @@ else if(userType==="ngo"){
 
     })
 }
-
-
