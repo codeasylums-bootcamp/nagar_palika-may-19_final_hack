@@ -30,7 +30,7 @@ router.post('/',function(req,res){
         firstname:req.body.firstname,
         lastname:req.body.lastname,
         username:req.body.username,
-        dateofBirth:req.body.dateofBirth,
+        dateOfBirth:req.body.dateOfBirth,
         email:req.body.email,
         password:bcryptjs.hashSync(req.body.password,10)
     })
