@@ -103,3 +103,13 @@ else if(userType==="ngo"){
 
     })
 }
+
+
+axios.get('http://localhost:3000/user')
+.then(res=>{
+  console.log(res)
+  for(let i=0;i<res.data.length;i++)
+  {
+    document.getElementById('topContri').innerHTML+=`<li><a href="">${res.data[i].firstname} ${res.data[i].lastname}</a></li>`
+  }
+})
