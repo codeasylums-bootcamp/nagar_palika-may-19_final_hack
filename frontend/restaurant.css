@@ -6,11 +6,14 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("img/frontBackground.jpg");
+  background: url("img/img10.jpg");
   background-size: cover;
   /* background-repeat: no-repeat; */
 
   font-family: 'Dosis', sans-serif;
+}
+.img{
+  opacity:0.5;
 }
 
 .wrapper {

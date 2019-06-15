@@ -1,5 +1,25 @@
 body{
-  background-image: url("img/frontBackground.jpg");
+  background-image: url("img/img10.jpg");
     background-size: cover;
 }
 .pointer {cursor: pointer;}
+.choose{
+  height:5em;
+  width:10em;
+  background: rgb(2, 15, 35);
+  border-radius: 1em;
+}
+.uploadBtnWrap {
+  font-family: arial;
+  font-size: 12px;
+  .btn {
+     padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #f4f4f4;
+    cursor: pointer;
+  }
+  input[type="file"] {
+    display: none
+  }
+}
