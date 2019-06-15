@@ -16,7 +16,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("img/img3.jpg");
+  background-image: url("img/frontBackground.jpg");
   background-size: cover;
   /* background-repeat: no-repeat; */
 
@@ -42,6 +42,7 @@ body {
   padding: .5em;
   font-family: 'PT Sans Narrow', sans-serif;
 }
+.pointer {cursor: pointer;}
 .profile-pic {
   width: 8em;
   height: 8em;

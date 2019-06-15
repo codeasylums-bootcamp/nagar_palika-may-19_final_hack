@@ -29,7 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    
+
     <style>
         /* Always set the map height explicitly to define the size of the div
          * element that contains the map. */
@@ -45,10 +45,10 @@
       </style>
 
 
-    
+
   </head>
   <body>
-    
+
     <header class="default-header"  style="opacity:0.8;">
       <nav class="navbar navbar-expand-lg" >
         <div class="container">
@@ -69,11 +69,11 @@
 
                 <li class="dropdown">
                   <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Pages
+                    Logout
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="generic.html">Generic</a>
-                    <a class="dropdown-item" href="elements.html">Elements</a>
+                    <a class="dropdown-item">Others</a>
+                  <a class="dropdown-item pointer" onclick="openIndex()">Logout</a>
                   </div>
                 </li>
               </ul>
@@ -92,12 +92,12 @@
                 <h2 class="card-title">Add Event</h2>
                 </center>
               </div>
-              
+
               <div class="card-body">
                 <h5 class="card-title">Title</h5>
                 <input type="text" style="background:#f2f4f6;width:100%;border-radius:.5em;" name="issueId" id="issueId" />
               </div>
-              
+
               <div class="card-body">
                 <h5 class="card-title">Description</h5>
                 <input type="text" rows="10" style="background:#f2f4f6;width:100%;border-radius:.5em;" name="issueDesc" id="issueDesc" />
@@ -125,7 +125,7 @@
           </div>
           </form>
         </div>
-        
+
       </div>
 
       <br>
@@ -147,7 +147,13 @@
     <script src="js/submitOptions.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzLdcKEPCe4SQf3-cdSnq5vmh_MRaHCs&callback=initMap"
 async defer></script>
-    
+
+<script>
+function openIndex(){
+  window.open("index.html",'_self');
+}
+</script>
+
     <script>
       var map;
       var pos;
@@ -174,6 +180,8 @@ async defer></script>
             console.log(pos)
             document.getElementById('issueLocationLat').value=pos.lat;
             document.getElementById('issueLocationLng').value=pos.lng;
+
+
             addMarker(pos);
 
           }, function() {
@@ -224,7 +232,8 @@ async defer></script>
     //  }
   
 
-      
+
+
     </script>
     <!-- <script>
     $('#form1')
@@ -257,7 +266,7 @@ async defer></script>
 	          issueLocation:issueLocation,
 	          issueDesc:issueDesc,
             issueImage:issueImage
-            
+
           })
           .then(function(res){
             console.log(res);

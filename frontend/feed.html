@@ -60,11 +60,11 @@
                <!-- Dropdown -->
                 <li class="dropdown">
                   <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Pages
+                    Logout
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="generic.html">Generic</a>
-                    <a class="dropdown-item" href="elements.html">Elements</a>
+                    <a class="dropdown-item">Others</a>
+                    <a class="dropdown-item pointer" onclick="openIndex()">Logout</a>
                   </div>
                 </li>
               </ul>
@@ -163,6 +163,11 @@
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
     <script src="feed.js"></script>
+    <script>
+    function openIndex(){
+      window.open("index.html",'_self');
+    }
+    </script>
 
   </body>
 </html>

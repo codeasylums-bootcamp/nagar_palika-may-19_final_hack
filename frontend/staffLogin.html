@@ -41,7 +41,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
@@ -66,11 +66,11 @@
                <!-- Dropdown -->
                 <li class="dropdown">
                   <a class="dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Pages
+                    Logout
                   </a>
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="generic.html">Generic</a>
-                    <a class="dropdown-item" href="elements.html">Elements</a>
+                    <a class="dropdown-item">Others</a>
+                  <a class="dropdown-item pointer" onclick="openIndex()">Logout</a>
                   </div>
                 </li>
               </ul>
@@ -200,9 +200,13 @@
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/submitOptions.js"></script>
-    <!-- <script src="staffLogin.js"></script> -->
-  </body>
 
+  </body>
+  <script>
+  function openIndex(){
+    window.open("index.html",'_self');
+  }
+  </script>
   <script type="text/javascript">
 function listRestro(){
  document.getElementById("restro").style.backgroundColor = "lightblue";
@@ -299,7 +303,7 @@ document.getElementById("list2").innerHTML=`
             let issueDesc=[];
             let issueStatus=[];
             let issueImageUrl=[];
-            
+
 
 function listSociety(){
     console.log("yaha hu main")
@@ -311,14 +315,14 @@ function listSociety(){
          document.getElementById("list1").innerHTML='';
          document.getElementById("list2").innerHTML='';
          document.getElementById("list3").innerHTML='';
-         
+
         for(let i=0;i<res.data.length;i++)
-        {   
+        {
              issueId[i]=res.data[i].issueId;
              issueDesc[i]=res.data[i].issueDesc;
              issueStatus[i]=res.data[i].issueStatus;
              issueImageUrl[i]=res.data[i].issueImageUrl;
-              
+
 
             if(issueStatus[i]==='pending')
             {
