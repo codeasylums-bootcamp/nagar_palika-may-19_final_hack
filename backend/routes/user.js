@@ -5,6 +5,15 @@ const mongoose=require('mongoose');
 const jwt=require('jsonwebtoken')
 const userModel=require('../models/userModel.js')
 
+router.get('/',function(req,res){
+    userModel.find()
+    .exec()
+    .then(response=>{
+        res.json(response);
+
+    })
+})
+
 router.get('/:email', function(req,res){
     const email=req.params.email;
     userModel.findOne({
@@ -21,7 +30,7 @@ router.post('/',function(req,res){
         firstname:req.body.firstname,
         lastname:req.body.lastname,
         username:req.body.username,
-        dateofBirth:req.body.dateofBirth,
+        dateOfBirth:req.body.dateOfBirth,
         email:req.body.email,
         password:bcryptjs.hashSync(req.body.password,10)
     })

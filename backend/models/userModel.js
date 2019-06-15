@@ -5,10 +5,11 @@ const userSchema= mongoose.Schema({
     firstname:{type: String, required: true},
     lastname:{type: String, required: true},
     username:{type: String, required: true, unique: true},
-    dateofBirth:{type: String, required: true},
+    dateOfBirth:{type: String, required: true},
     email:{type: String, required: true},
     password : {type:String,required:true},
-    issueDone :{type:Array},
+    issueDone :{type:Number,default:0},
+    issueSolved:{type:Array},
     issueReported : {type:Array},
     rating : {type:Number, default:0}
 

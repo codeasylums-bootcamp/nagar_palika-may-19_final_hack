@@ -62,6 +62,8 @@ axios.get('http://localhost:3000/issue')
 let userType= localStorage.getItem('userType')
 let userEmail = localStorage.getItem('email');
 
+console.log(userType)
+
 
 if(userType==="user"){
     axios.get(`http://localhost:3000/user/${userEmail}`)
@@ -73,8 +75,8 @@ if(userType==="user"){
             let firstName= res.data.firstname;
             let lastName= res.data.lastname;
             let dateOfBirth= res.data.dateofbirth;
-            let issuDone= res.data.issuDone;
-            let issuReported= res.data.issueReported;
+            let issueDone= res.data.issuDone;
+            let issueReported= res.data.issueReported;
             let rating= res.data.rating;
 
 
@@ -84,7 +86,7 @@ if(userType==="user"){
     <div class="about-me"></div>
     <div class="stats">
       <div class="item followers">
-        <span class="num">${issuDone}</span>
+        <span class="num">${issueDone}</span>
         <div class="text">Issue Solved</div>
       </div>
       <div class="item stars">
@@ -125,3 +127,13 @@ else if(userType==="ngo"){
 
     })
 }
+
+
+axios.get('http://localhost:3000/user')
+.then(res=>{
+  console.log(res)
+  for(let i=0;i<res.data.length;i++)
+  {
+    document.getElementById('topContri').innerHTML+=`<li><a href="">${res.data[i].firstname} ${res.data[i].lastname}</a></li>`
+  }
+})

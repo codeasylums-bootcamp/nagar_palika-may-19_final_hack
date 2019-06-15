@@ -40,7 +40,7 @@ router.post('/', upload.single('issueImage'),function(req,res){
 
 
 router.get("/",(req,res)=>{
-    issueModel.find()
+    issueModel.find().sort({"_id":-1})
     .exec()
     .then(issue=>{
         res.json(issue).status(200);
