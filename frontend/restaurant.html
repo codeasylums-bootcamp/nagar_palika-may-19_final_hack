@@ -14,12 +14,13 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="feed.css">
+    <link rel="stylesheet" href="restaurant.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
   		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700,400|Titillium+Web:400,600,700,300)">
   			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis:400,300,500)">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600">
           <!--
           CSS
           ============================================= -->
@@ -34,8 +35,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzLdcKEPCe4SQf3-cdSnq5vmh_MRaHCs&callback=initMap"
-    async defer></script>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
@@ -91,36 +91,64 @@
 
 
           <div class="col-lg-5 " id="addCard">
-            <div class="card" style="width:100%;box-shadow: 5px 10px 8px #888888;background:rgba(40,57,101,.9);margin-top:7%;">
-              <div class="card-body">
-                <a href="addEvent.html" style="color:white;"><h5 class="card-title" style="padding:.7em 0 0 0;" >Add event</h5></a>
-              </div>
-            </div>
-            <!-- <br>
-            <div class="card" style="width:100%;box-shadow: 5px 10px 8px #888888;">
-              <img class="card-img-top" src="img/img2.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-              </div>
-            </div>
-            <br>
-            <div class="card" style="width:100%;box-shadow: 5px 10px 8px #888888;">
-              <img class="card-img-top" src="img/img2.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              </div>
-              <div class="card-body">
-                <div>
-                  Issue Status:
+
+            <div class="login-wrap" style="margin-top:7%;">
+              <div class="login-html">
+                <!-- <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label> -->
+              <center>  <h2 style="color:white;">Food Details</h2></center>
+                <div class="login-form">
+                  <!-- <div class="sign-in-htm"> -->
+                    <div class="group">
+                      <label for="user" class="label">Restaurant name</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="group">
+                      <label for="pass" class="label">Location</label>
+                      <textarea class="input"></textarea>
+                    </div>
+                    <div class="group">
+                      <label for="user" class="label">Serves(number of persons)</label>
+                      <input type="text" class="input">
+                    </div>
+                    <div class="group">
+                      <label for="user" class="label">Closes at..</label>
+                        <input type="text" class="input">
+                    </div>
+                    <div class="group">
+                      <input type="submit" class="button" value="Submit">
+                    </div>
+                  <!-- </div> -->
+                  <!-- <div class="sign-up-htm">
+                    <div class="group">
+                      <label for="user" class="label">Username</label>
+                      <input id="user" type="text" class="input">
+                    </div>
+                    <div class="group">
+                      <label for="pass" class="label">Password</label>
+                      <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                      <label for="pass" class="label">Repeat Password</label>
+                      <input id="pass" type="password" class="input" data-type="password">
+                    </div>
+                    <div class="group">
+                      <label for="pass" class="label">Email Address</label>
+                      <input id="pass" type="text" class="input">
+                    </div>
+                    <div class="group">
+                      <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                      <label for="tab-1">Already Member?
+                    </div>
+                  </div> -->
                 </div>
-                <a href="#" class="card-link">Card link</a>
               </div>
-            </div> -->
+            </div>
+
+
           </div>
 
 

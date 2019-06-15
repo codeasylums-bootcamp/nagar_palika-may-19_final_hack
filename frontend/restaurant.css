@@ -1,15 +1,5 @@
 
 
-@mixin trans($prop:all, $time:0.4s, $time_function:ease-in-out) {
-  transition: $prop $time $time_function;
-}
-
-* {
-  box-sizing: border-box;
-}
-::-webkit-input-placeholder {
-   color: #e4e4e4;
-}
 
 body {
   width: 100%;
@@ -30,7 +20,7 @@ body {
   padding: 1em;
   color: #fff;
    /* background: linear-gradient(to top, #731DD8 60%, #e5e5e5); */
-  background-color: rgba(40,57,101,.9);
+  background-color:rgba(40,57,101,.9);
   margin-top: 12%;
   box-shadow: 0 0 1em rgba(55,55,55,.5);
   color: #E4DFDA;
@@ -74,38 +64,7 @@ body {
   margin: 2em 0;
 }
 
-.stats {
-  background-color: #fff;
-  color: rgba(40,57,101,.9);
-  padding: 1em;
-  display: flex;
-  justify-content: space-around;
-  margin: 3em 2em 2em;
-  border-radius:.3em;
-}
 
-  .num {
-    font-weight: 500;
-    font-size: 2em;
-  }
-  .item{
-    @include trans($time:.2s);
-    &:hover{
-      color: #999;
-    }
-  }
-
-
-
-
-
-div.sticky{
-	position: fixed;
-
-}
-body{
-  margin-left:2em;
-}
 ol{
 	counter-reset: li; /* Initiate a counter */
 	list-style: none; /* Remove default numbering */
@@ -157,4 +116,48 @@ ol ol{
 	font-weight: bold;
 	border-radius: 2em;
 	transition: all .3s ease-out;
+}
+
+.login-wrap{
+	width:100%;
+	/* max-width:525px; */
+  border-radius: .5em;
+	min-height:100%;
+	position:relative;
+	background:url("img/img2.jpg") no-repeat center;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+  border-radius: .5em;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(40,57,101,.9);
+}
+
+
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:1em 0 .5em 1em;
+	border-radius:1.5em;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group .label{
+  margin: 1em;
+	color:white;
+  /* font-weight: bold; */
+	/* font-size:2em; */
+}
+.login-form .group .button{
+	background:#1161ee;
+  	padding:1em 1em 1em 1em;
 }
