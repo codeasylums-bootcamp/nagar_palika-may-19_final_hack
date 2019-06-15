@@ -10,7 +10,10 @@ const issueModel=require('../models/issueModel.js');
 
 
 router.post('/', upload.single('issueImage'),function(req,res){
-    
+    // console.log(req.file);
+    // console.log("req.bosy waala saman ");
+    // console.log(req.body);
+    // console.log("ye wla post se pele hua")
     const newIssue=new issueModel({
         _id: new mongoose.Types.ObjectId(),
         issueId:req.body.issueId,
@@ -20,16 +23,15 @@ router.post('/', upload.single('issueImage'),function(req,res){
         //issueStatus:req.body.issueStatus,
         issueImageUrl:req.file.path
 
-        
-        
+
+
     })
     newIssue.save()
     .then(function(response){
-        res.json('issue reported successfully').status(200);
-
-        console.log(response)
+        res.json('Issue Reported Successfully')
+        console.log(response);
         console.log("issue reported succesfully")
-         
+
     }).catch(err=>{
         console.log(err);
     })
@@ -51,7 +53,7 @@ router.put('/:issueTitle',function(req,res){
     console.log('put mei hu mai');
     const id=req.params.issueTitle;
     const newissueStatus = 'pending'
-    
+
     issueModel.updateOne({"issueId":id},{$set:{"issueStatus":newissueStatus}})
     .exec()
     .then(answer=>{

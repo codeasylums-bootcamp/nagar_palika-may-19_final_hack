@@ -128,7 +128,7 @@ ol ol{
   border-radius: .5em;
 	min-height:100%;
 	position:relative;
-	background:url("img/img2.jpg") no-repeat center;
+	background-image:url("img/img2.jpg");
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-html{
@@ -144,7 +144,7 @@ ol ol{
 .login-form .group .label,
 .login-form .group .input,
 .login-form .group .button{
-	width:100%;
+	width:100%;min-height:100%;
 	color:#fff;
 	display:block;
 }

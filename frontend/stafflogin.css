@@ -1,5 +1,5 @@
 body {
-    background: -webkit-linear-gradient(to down, #ffffff, #abbaab);
+    /* background: -webkit-linear-gradient(to down, #ffffff, #abbaab); */
     font-family: 'Open Sans', sans-serif;
     background-image: url("img/img10.jpg");
       background-size: cover;
@@ -20,7 +20,7 @@ body {
     overflow: auto;
 }
 .item-card {
-    background:rgba(40,57,101,.9);
+    background:rgb(4, 23, 53);
     width:100%;
     border-radius: 1em;
     color:white;
