@@ -1,3 +1,5 @@
 body{
-  background-image: url("img/img2.jpg");
+  background-image: url("img/frontBackground.jpg");
+    background-size: cover;
 }
+.pointer {cursor: pointer;}
