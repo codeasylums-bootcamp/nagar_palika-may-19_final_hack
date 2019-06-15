@@ -16,8 +16,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("img/img3.jpg");
-  background-size: cover;
+  /* background-image: url("img/img3.jpg");
+  background-size: cover; */
   /* background-repeat: no-repeat; */
 
   font-family: 'Dosis', sans-serif;

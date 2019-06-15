@@ -126,7 +126,7 @@ ol ol{
 	width:100%;
 	/* max-width:525px; */
   border-radius: .5em;
-	min-height: 90%;
+	min-height: 100%;
 	position:relative;
 	background-image:url("img/img2.jpg");
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
