@@ -34,6 +34,27 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 50%;
+        width: 50%;
+      }
+
+      #map2 {
+          height: 50%;
+          width: 50%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPzLdcKEPCe4SQf3-cdSnq5vmh_MRaHCs&callback=initMap"
     async defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -75,7 +96,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3" id="left1">
+            <div class="col-lg-3">
               <center>
               <div class="wrapper" style="width:100%;">
                 <a href="https://github.com/ajduke" target="_blank">
@@ -130,7 +151,7 @@
 
 
 
-          <div class="col-lg-4" id="right1">
+          <div class="col-lg-4" >
             <center>
             <div class="card" style="background:rgba(4, 23, 53,.9);width:90%;box-shadow: 5px 10px 8px rgba(25, 0, 0,.5);margin-top:15%;">
               <div class="card-body">
