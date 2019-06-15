@@ -16,7 +16,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("img/img10.jpg");
+  background-image: url("img/img3.jpg");
   background-size: cover;
   /* background-repeat: no-repeat; */
 
@@ -30,8 +30,8 @@ body {
   padding: 1em;
   color: #fff;
    /* background: linear-gradient(to top, #731DD8 60%, #e5e5e5); */
-  background-color:rgba(40,57,101,.9);
-  margin-top: 12%;
+  background-color:rgba(4, 23, 53,.9);
+  margin-top: 18%;
   box-shadow:  5px 10px 8px rgba(25, 0, 0,.5);
   color: #E4DFDA;
   border-radius: .4em;
@@ -152,7 +152,7 @@ ol ol{
 	background: lightblue;
 	height: 3em;
 	width: 3em;
-	line-height: 2em;
+	line-height: 2.5em;
 	border: .3em solid #fff;
 	text-align: center;
 	font-weight: bold;
@@ -170,4 +170,37 @@ ol ol{
 
 .smalls {
 position:absolute;right:0px;bottom:0px;width:30%; height: 30%;
+}
+
+#left1 {
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 2em;
+}
+#right1 {
+
+    position: fixed;
+    left: 66.67%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 2em;
+}
+
+#addCard {
+
+    position: absolute;
+    left:25%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: hidden;
+    padding: 2em;
+  min-height:1000px;
 }

@@ -21,7 +21,7 @@ axios.get('http://localhost:3000/issue')
 
             <br>
             <center>
-            <div class="card" style="width:90%;box-shadow: 5px 10px 8px #888888;">
+            <div class="card" style="width:100%;box-shadow: 0.2em .2em .2em #888888;">
 
             <div class="big_red">
 

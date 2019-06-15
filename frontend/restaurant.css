@@ -6,9 +6,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: url("img/img10.jpg");
+  background: url("img/img20.jpg");
   background-size: cover;
-  /* background-repeat: no-repeat; */
+  background-repeat: no-repeat;
 
   font-family: 'Dosis', sans-serif;
 }
@@ -24,7 +24,7 @@ body {
   color: #fff;
    /* background: linear-gradient(to top, #731DD8 60%, #e5e5e5); */
   background-color:rgba(40,57,101,.9);
-  margin-top: 12%;
+  margin-top: 18%;
   box-shadow: 0 0 1em rgba(55,55,55,.5);
   color: #E4DFDA;
   border-radius: .4em;
@@ -80,7 +80,7 @@ ol{
 }
 
 ol ol{
-	margin: 0 0 0 2em; /* Add some left margin for inner lists */
+	margin: 0 0background-repeat: no-repeat; 0 2em; /* Add some left margin for inner lists */
 }
 .rounded-list a{
 	position: relative;
@@ -126,7 +126,7 @@ ol ol{
 	width:100%;
 	/* max-width:525px; */
   border-radius: .5em;
-	min-height:100%;
+	min-height: 90%;
 	position:relative;
 	background-image:url("img/img2.jpg");
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
@@ -164,4 +164,37 @@ ol ol{
 .login-form .group .button{
 	background:#1161ee;
   	padding:1em 1em 1em 1em;
+}
+
+#left1 {
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 2em;
+}
+#right1 {
+
+    position: fixed;
+    left: 66.67%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 2em;
+}
+
+#addCard {
+
+    position: absolute;
+    left:25%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    overflow-y: hidden;
+    padding: 2em;
+  min-height:1000px;
 }
