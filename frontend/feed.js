@@ -20,8 +20,29 @@ axios.get('http://localhost:3000/issue')
     document.getElementById('addCard').innerHTML+=`
 
             <br>
-            <div class="card" style="width:100%;box-shadow: 5px 10px 8px #888888;">
+            <center>
+            <div class="card" style="width:90%;box-shadow: 5px 10px 8px #888888;">
+
+            <div class="big_red">
+
+
               <img class="card-img-top" src="../backend/${issueImageUrl}" alt="Card image cap">
+              <div class="smalls">
+              <p>Hi! I stick to the bottom right of my red parent. Drag big_red's lower right hand corner and resize. I won't take candy from you strangers.
+              </div>
+            </div>
+            <br>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-3">
+                  like
+                </div>
+                <div class="offset-lg-1 col-lg-4">
+                <a href="">contribute<a>
+                </div>
+            </div>
+            </div>
+
               <div class="card-body">
                 <h5 class="card-title">${issueTitle}</h5>
                 <p class="card-text" >${issueDesc}</p>
@@ -29,7 +50,10 @@ axios.get('http://localhost:3000/issue')
               <div class="card-body">
                 <a href="#" class="card-link">Card link</a> <span>Status: ${issueStatus}</span>
               </div>
-            </div>`
+            </div>
+            </center>
+            `
+
 
     }
 })

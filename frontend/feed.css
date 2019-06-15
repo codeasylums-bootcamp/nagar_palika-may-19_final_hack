@@ -159,3 +159,15 @@ ol ol{
 	border-radius: 2em;
 	transition: all .3s ease-out;
 }
+
+.big_red {
+  position:relative;
+  display:block;
+  resize: both;
+  overflow: hidden;
+  z-index:1;
+}
+
+.smalls {
+position:absolute;right:0px;bottom:0px;width:30%; height: 30%;
+}

@@ -7,23 +7,23 @@ function userLoginForm(){
                 <h1 class="mb-10">Login as User</h1>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-5 offset-lg-2">
           <label for="email">Email</label>
             <input type="email" id="userEmail" name="email" />
             <label for="userPassword">Password:</label>
             <input
-            type="password" 
-            id="userPassword" 
-            name="password" 
+            type="password"
+            id="userPassword"
+            name="password"
             />
 
         <button class="btn btn-info" onclick="userLogin()">Submit</button>
         </div>
-                                                        
+
 
     </div>
 </div>	`;
@@ -37,23 +37,23 @@ function ngoLoginForm(){
                 <h1 class="mb-10">Login as NGO</h1>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-5 offset-lg-2">
           <label for="email">Email</label>
             <input type="email" id="ngoEmail" name="email" />
             <label for="password">Password:</label>
             <input
-            type="password" 
-            id="ngoPassword" 
-            name="password" 
+            type="password"
+            id="ngoPassword"
+            name="password"
             />
 
         <button class="btn btn-info" onclick="ngoLogin()">Submit</button>
         </div>
-                                                        
+
 
     </div>
 </div>	`;
@@ -67,23 +67,23 @@ function restaurantLoginForm(){
                 <h1 class="mb-10">Login as Restaurant</h1>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-5 offset-lg-2">
           <label for="email">Email</label>
             <input type="email" id="restEmail" name="email" />
             <label for="password">Password:</label>
             <input
-            type="password" 
-            id="restPassword" 
-            name="password" 
+            type="password"
+            id="restPassword"
+            name="password"
             />
 
         <button class="btn btn-info" onclick="restLogin()">Submit</button>
         </div>
-                                                        
+
 
     </div>
 </div>	`;
@@ -97,23 +97,23 @@ function staffLoginForm(){
                 <h1 class="mb-10">Login as STAFF</h1>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-5 offset-lg-2">
           <label for="email">Email</label>
             <input type="email" id="staffEmail" name="email" />
             <label for="staffPassword">Password:</label>
             <input
-            type="password" 
-            id="password" 
-            name="password" 
+            type="password"
+            id="password"
+            name="password"
             />
 
         <button class="btn btn-info" onclick="staffLogin()">Submit</button>
         </div>
-                                                        
+
 
     </div>
 </div>	`;
@@ -132,16 +132,16 @@ function userSignUpForm(){
                 <h1 class="mb-10">Sign Up as User</h1>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-5 offset-lg-2">
             <label for="userSignFirstname">Firstname</label>
-            <input 
-            type="text" 
-            id="userSignFirstname" 
-            name="firstname" 
+            <input
+            type="text"
+            id="userSignFirstname"
+            name="firstname"
             />
 
             <label for="userLastname">Lastname</label>
@@ -154,24 +154,30 @@ function userSignUpForm(){
             <input type="text" id="userSignDateofBirth" name="Date of Birth" />
 
             <label for="email">Email</label>
-            <input type="email" id="userSignEmail" name="email" />
-
+            <input type="email" id="userSignEmail" name="email" style="width:68%;">&nbsp<input type="submit" onclick="userotp()" class="btn btn-info" style="height:7.2%;" value="Generate OTP">
+            <div id="userotp">
+            </div>
 
             <label for="userPassword">Password:</label>
             <input
-            type="password" 
-            id="userSignPassword" 
-            name="password" 
+            type="password"
+            id="userSignPassword"
+            name="password"
             />
 
         <button class="btn btn-info" onclick="userSignUp()">Submit</button>
         </div>
-                                                        
+
 
     </div>
 </div>	`;
 }
-
+function userotp(){
+  document.getElementById("userotp").innerHTML=`
+    <label for="otp">Enter OTP</label>
+    <input type="text" id="generateduserotp" name="userotp" style="width:35%">
+  `
+}
 function ngoSignUpForm(){
     document.getElementById('service').innerHTML=`<div class="container">
     <div class="row d-flex justify-content-center">
@@ -180,16 +186,16 @@ function ngoSignUpForm(){
                 <h1 class="mb-10">Sign Up as NGO</h1>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-5 offset-lg-2">
         <label for="firstname">NGO Name</label>
-        <input 
-        type="text" 
-        id="ngoSignName" 
-        name="ngoName" 
+        <input
+        type="text"
+        id="ngoSignName"
+        name="ngoName"
         />
 
         <label for="lastname">NGO Code</label>
@@ -198,24 +204,32 @@ function ngoSignUpForm(){
         <label for="username">Established Date</label>
         <input type="text" id="dateOfEstd" name="ngoDateOfEstd" placeholder="DD/MM/YY"/>
 
-        
+
 
         <label for="email">Email</label>
-        <input type="email" id="ngoSignEmail" name="email" />
+        <input type="email" id="ngoSignEmail" name="email" style="width:68%;">&nbsp<input type="submit" onclick="ngootp()" class="btn btn-info" style="height:8%;" value="Generate OTP">
+        <div id="ngootp">
+        </div>
 
 
         <label for="password">Password:</label>
         <input
-        type="password" 
-        id="ngoSignPassword" 
-        name="password" 
+        type="password"
+        id="ngoSignPassword"
+        name="password"
         />
       <button class="btn btn-info" onclick="ngoSignUp()">Submit</button>
       </div>
-                                                        
+
 
     </div>
 </div>	`;
+}
+function ngootp(){
+  document.getElementById("ngootp").innerHTML=`
+    <label for="otp">Enter OTP</label>
+    <input type="text" id="generatedngootp" name="ngootp" style="width:35%">
+  `
 }
 
 function restaurantSignUpForm(){
@@ -226,42 +240,50 @@ function restaurantSignUpForm(){
                 <h1 class="mb-10">Sign Up as Restaurant</h1>
             </div>
         </div>
-    </div>	
+    </div>
 
     <div class="row">
         <div class="col-lg-4"></div>
-        <div class="col-lg-4 offset-lg-2">
+        <div class="col-lg-5 offset-lg-2">
         <label for="restName">Name of the Restaurant</label>
-        <input 
-        type="text" 
-        id="restSignName" 
-        name="restName" 
+        <input
+        type="text"
+        id="restSignName"
+        name="restName"
         />
 
         <label for="email">Email</label>
-        <input type="email" id="restSignEmail" name="email" />
+        <input type="email" id="restSignEmail" name="email" style="width:68%;">&nbsp<input type="submit" onclick="resotp()" class="btn btn-info" style="height:10%;" value="Generate OTP">
+        <div id="resotp">
+        </div>
 
 
         <label for="password">Password:</label>
         <input
-        type="password" 
-        id="restSignPassword" 
-        name="password" 
+        type="password"
+        id="restSignPassword"
+        name="password"
         />
 
         <label for="lastname">Number of Persons that can be fed.</label>
-        <input 
-        type="text" 
-        id="foodAvailable" 
-        name="foodAvailable" 
+        <input
+        type="text"
+        id="foodAvailable"
+        name="foodAvailable"
         />
 
       <button class="btn btn-info" onclick="restSignUp()">Submit</button>
       </div>
-                                                        
+
 
     </div>
 </div>`;
+}
+function resotp(){
+  document.getElementById("resotp").innerHTML=`
+    <label for="otp">Enter OTP</label>
+    <input type="text" id="generatedresotp" name="resotp" style="width:35%">
+  `
 }
 
 // Login||SignUp Form End
@@ -277,7 +299,7 @@ function userLogin(){
         userEmail,
         userPassword
     }).then(res=>{
-            
+
     }).catch(err=>{
         alert(err);
     })
@@ -353,8 +375,8 @@ function userSignUp(){
     }).catch(err=>{
         console.log("error")
     })
-    
-    
+
+
 
 }
 
@@ -382,7 +404,7 @@ function ngoSignUp(){
 }
 
 function restSignUp(){
-    
+
     let restSignName=document.getElementById('restSignName').value;
     let restSignEmail=document.getElementById('restSignEmail').value;
     let restSignPassword=document.getElementById('restSignPassword').value;
