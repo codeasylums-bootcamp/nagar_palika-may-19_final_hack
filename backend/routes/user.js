@@ -12,6 +12,7 @@ let transporter=nodemailer.createTransport({
     service:'gmail',
     auth:{
         user:'nagar3.palika',
+        subject:'your otp for sign up',
         pass:'nagar!@12'
     }
 })
@@ -53,7 +54,7 @@ router.post('/verify',function(req,res){
 
 
 router.post('/',function(req,res){
-    console.log("inside post")
+    console.log(req.body)
     const newUser=new userModel({
         _id: new mongoose.Types.ObjectId,
         firstname:req.body.firstname,
@@ -66,19 +67,23 @@ router.post('/',function(req,res){
     userModel.find({email:req.body.email})
     .exec()
     .then(user=>{
+        console.log(user)
         if(user.length>0)
             res.json({"message":"email exist"})
         else{
             if(req.body.userOtp==val){
             newUser.save();
-            res.json({"message": "Account Created"},{"userName":req.body.firstname})
+            res.json({"message": "Account Created"})
             
             }
             else{
                 res.json({"message":"wrong otp"})
             }
         }
-    }).catch
+    }).catch(err=>{
+        res.json
+        console.log(err)
+    })
 })
 
 router.post('/login',function(req,res){

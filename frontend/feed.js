@@ -27,8 +27,7 @@ axios.get('http://localhost:3000/issue')
 
 
               <img class="card-img-top" src="../backend/${issueImageUrl}" alt="Card image cap">
-              <div class="smalls">
-              <p>Hi! I stick to the bottom right of my red parent. Drag big_red's lower right hand corner and resize. I won't take candy from you strangers.
+              
               </div>
             </div>
             <br>
@@ -116,7 +115,7 @@ else if(userType==="ngo"){
             <div class="about-me"></div>
             <div class="stats">
             <div class="item followers">
-                <span class="num">${issueDone}</span>
+                <span class="num">${issueContributed.length}</span>
                 <div class="text">Issue Solved</div>
             </div>
             <div class="item followers">

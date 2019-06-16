@@ -28,7 +28,7 @@ router.post('/', upload.single('issueImage'),function(req,res){
     })
     newIssue.save()
     .then(function(response){
-        res.json('Issue Reported Successfully')
+        res.json('Issue Reported Successfully, You may kill this dialog box and proceed to feed page')
         console.log(response);
         console.log("issue reported succesfully")
 
