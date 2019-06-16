@@ -7,8 +7,8 @@ const ngoSchema=mongoose.Schema({
     dateOfEstd:{type:String,required:true},
     email:{type:String,required:true},
     password:{type:String,reauired:true},
-    issueDone:{type:Array},
-    rating:{type:Number}
+    issueContributed:{type:Array},
+    rating:{type:Number,default:0}
 })
 
 module.exports=mongoose.model('ngo',ngoSchema);

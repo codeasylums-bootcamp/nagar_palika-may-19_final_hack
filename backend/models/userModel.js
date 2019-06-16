@@ -8,10 +8,10 @@ const userSchema= mongoose.Schema({
     dateOfBirth:{type: String, required: true},
     email:{type: String, required: true},
     password : {type:String,required:true},
-    issueDone :{type:Number,default:0},
-    issueSolved:{type:Array},
+    issueContributed:{type:Array},
     issueReported : {type:Array},
-    rating : {type:Number, default:0}
+    rating : {type:Number, default:0},
+    
 
 
 })

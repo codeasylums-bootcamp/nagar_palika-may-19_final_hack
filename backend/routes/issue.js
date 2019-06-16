@@ -61,6 +61,44 @@ router.put('/:issueTitle',function(req,res){
     })
 
 })
+router.put('/vote/:issueTitle',function(req,res){
+    console.log(req.body)
+    const issueTitle=req.params.issueTitle;
+    const newUpVotes=req.body.issueVotes;
+    console.log(issueTitle);
+    console.log(newUpVotes);
+    issueModel.updateOne({"issueId":issueTitle},{$set:{"issueVotes":newUpVotes}})
+    .exec()
+    .then(answer=>{
+        res.json(answer).status(200);
+    })
+})
+
+router.put('/chat/:title',function(req,res){
+
+    const issueTitle=req.params.title;
+    // console.log(issueTitle)
+    const newUserEmail=req.body.email;
+    // console.log(req.body)
+    issueModel.findOne({"issueId":issueTitle})
+    .exec()
+    .then(issue=>{
+        // console.log("hereee")
+        // console.log(issue)
+        issue.issueContributers.push(newUserEmail)
+        issueModel.updateOne({"issueId":issueTitle},{$set:{"issueContributers":issue.issueContributers}})
+        .exec()
+        .then(answer=>{
+            // console.log(answer)
+            res.json(answer).status(200);
+        })
+    
+    })
+
+
+
+   
+})
 
 // router.put('/location/:issueTitle',function(req,res){
 //     const id=req.params.issueTitle;

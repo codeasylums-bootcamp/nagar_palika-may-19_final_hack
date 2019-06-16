@@ -3,7 +3,18 @@ const router = express.Router();
 const bcryptjs=require('bcryptjs')
 const mongoose=require('mongoose');
 const jwt=require('jsonwebtoken')
+const nodemailer=require('nodemailer');
 const userModel=require('../models/userModel.js')
+
+
+
+let transporter=nodemailer.createTransport({
+    service:'gmail',
+    auth:{
+        user:'nagar3.palika',
+        pass:'nagar!@12'
+    }
+})
 
 router.get('/',function(req,res){
     userModel.find()
@@ -23,6 +34,24 @@ router.get('/:email', function(req,res){
             res.json(user)
     })
 })
+let val;
+router.post('/verify',function(req,res){
+     val=1000 + Math.floor(Math.random()*9000);
+
+    let mailOptions = {
+        from:'nagar3.palika@gmail.com',
+        to:req.body.email,
+        text:`your otp is : ${val}`
+    };
+    transporter.sendMail(mailOptions,(err,info)=>{
+        if(err)
+        console.log(err);
+    })
+
+})
+
+
+
 router.post('/',function(req,res){
     console.log("inside post")
     const newUser=new userModel({
@@ -40,8 +69,14 @@ router.post('/',function(req,res){
         if(user.length>0)
             res.json({"message":"email exist"})
         else{
+            if(req.body.userOtp==val){
             newUser.save();
-            res.json({"message": "Account Created"})
+            res.json({"message": "Account Created"},{"userName":req.body.firstname})
+            
+            }
+            else{
+                res.json({"message":"wrong otp"})
+            }
         }
     }).catch
 })
@@ -57,6 +92,7 @@ router.post('/login',function(req,res){
                
                 res.json({
                     "message":"Authentication successful",
+                    "userName":user.firstname
                     
                 }).status(200)
                 console.log("last");
@@ -70,6 +106,33 @@ router.post('/login',function(req,res){
         }
     })
 })
+
+router.put('/chat/:email',function(req,res){
+
+    const userEmail=req.params.email;
+    console.log(userEmail)
+    const issueTitle=req.body.title;
+    console.log(issueTitle)
+    userModel.findOne({"email":userEmail})
+    .exec()
+    .then(user=>{
+        console.log("hereee")
+        console.log(user)
+        user.issueContributed.push(issueTitle)
+        userModel.updateOne({"email":userEmail},{$set:{"issueContributed":user.issueContributed}})
+        .exec()
+        .then(answer=>{
+            console.log(answer)
+            res.json(answer).status(200);
+        })
+    
+    })
+
+
+
+   
+})
+
 
 
 

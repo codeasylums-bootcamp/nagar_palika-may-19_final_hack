@@ -50,6 +50,7 @@ router.post('/login',function(req,res){
 
                 res.json({
                     "message":"Authentication successful",
+                    "userName":user.staffName
                     
                 }).status(200)
                 console.log("last");
