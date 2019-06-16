@@ -1,5 +1,5 @@
 body{
-  background-image: url("img/img12.jpg");
+  background-image: url("img/img10.jpg");
     background-size: cover;
 }
 .pointer {cursor: pointer;}
@@ -12,6 +12,7 @@ body{
 .uploadBtnWrap {
   font-family: arial;
   font-size: 12px;
+}
   .btn {
      padding: 4px;
     border: 1px solid #ccc;
@@ -19,7 +20,4 @@ body{
     background: #f4f4f4;
     cursor: pointer;
   }
-  input[type="file"] {
-    display: none
-  }
-}
+  

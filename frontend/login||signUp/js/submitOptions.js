@@ -155,7 +155,7 @@ function userSignUpForm(){
 
             <label for="email">Email</label>
             <input type="email" id="userSignEmail" name="email" style="width:68%;">&nbsp<input type="submit" onclick="userotp()" class="btn btn-info" style="height:7.2%;" value="Generate OTP">
-            <div id="userotp">
+            <div id="userOtp">
             </div>
 
             <label for="userPassword">Password:</label>
@@ -174,10 +174,22 @@ function userSignUpForm(){
 }
 
 function userotp(){
-  document.getElementById("userotp").innerHTML=`
+
+  document.getElementById("userOtp").innerHTML=`
     <label for="otp">Enter OTP</label>
     <input type="text" id="generateduserotp" name="userotp" style="width:35%">
   `
+    let email=document.getElementById("userSignEmail").value;
+    axios.post("http://localhost:3000/user/verify",{
+        email:email
+    }).then(res=>{
+        console.log("hello")
+    }).catch(err=>{
+        console.log(err)
+    })
+
+
+
 }
 
 function ngoSignUpForm(){
@@ -209,7 +221,7 @@ function ngoSignUpForm(){
 
         <label for="email">Email</label>
               <input type="email" id="ngoSignEmail" name="email" style="width:68%;">&nbsp<input type="submit" onclick="ngootp()" class="btn btn-info" style="height:8%;" value="Generate OTP">
-              <div id="ngootp">
+              <div id="ngoOtp">
               </div>
 
         <label for="password">Password:</label>
@@ -227,10 +239,19 @@ function ngoSignUpForm(){
 }
 
 function ngootp(){
-  document.getElementById("ngootp").innerHTML=`
+  document.getElementById("ngoOtp").innerHTML=`
     <label for="otp">Enter OTP</label>
     <input type="text" id="generatedngootp" name="ngootp" style="width:35%">
   `
+
+  let email=document.getElementById("ngoSignEmail").value;
+    axios.post("http://localhost:3000/ngo/verify",{
+        email:email
+    }).then(res=>{
+        console.log("hello")
+    }).catch(err=>{
+        console.log(err)
+    })
 }
 
 
@@ -302,8 +323,9 @@ function userLogin(){
         password:userPassword
     }).then(res=>{
         if(res.data.message==="Authentication successful")
-            {
+            {   console.log(res.data)
                 localStorage.setItem('email',userEmail);
+                localStorage.setItem('userName',res.data.userName);
                 localStorage.setItem('userType',"user")
                 window.open('../feed.html',"_self");
             }
@@ -329,6 +351,7 @@ function ngoLogin(){
         if(res.data.message==="Authentication successful")
             {
                 localStorage.setItem('email',ngoEmail);
+                localStorage.setItem('userName',res.data.userName);
                 localStorage.setItem('userType',"ngo");
                 window.open('../feed.html',"_self");
             }
@@ -369,7 +392,8 @@ function staffLogin(){
             {
                 localStorage.setItem('email',staffEmail);
                 localStorage.setItem('userType',"staff")
-                window.open('../feed.html',"_self");
+                localStorage.setItem('userName',res.data.userName);
+                window.open('../staffLogin.html',"_self");
             }
         else{
             alert(res.data.message);
@@ -388,19 +412,25 @@ function userSignUp(){
     let userDateofBirth=document.getElementById('userSignDateofBirth').value;
     let userEmail=document.getElementById('userSignEmail').value;
     let userPassword=document.getElementById('userSignPassword').value;
-
-
+    let userOtp=document.getElementById('generateduserotp').value;
+    if(userOtp==null)
+    {
+        alert("enter otp")
+    }
+    else{
     axios.post("http://localhost:3000/user/",{
         firstname:userFirstname,
         lastname:userLastname,
         username:userUsername,
         dateOfBirth:userDateofBirth,
         email:userEmail,
-        password:userPassword
+        password:userPassword,
+        userOtp:userOtp
     }).then(res=>{
         if(res.data.message==="Account Created")
         {
             console.log("aaya hu yaha")
+            localStorage.setItem('userName',username);
             localStorage.setItem('email',userEmail);
             localStorage.setItem('userType',"user")
             window.open('../feed.html',"_self");
@@ -415,7 +445,7 @@ function userSignUp(){
         console.log(err)
     })
 
-
+    }
 
 }
 
@@ -426,29 +456,38 @@ function ngoSignUp(){
     let dateOfEstd=document.getElementById('dateOfEstd').value;
     let email=document.getElementById('ngoSignEmail').value;
     let password=document.getElementById('ngoSignPassword').value;
-
-
+    let ngoOtp=document.getElementById('generatedngootp').value;
+    if(ngoOtp==null)
+    {
+        alert("enter otp")
+    }
+    else{
     axios.post("http://localhost:3000/ngo",{
         ngoName:ngoName,
         ngoCode:ngoCode,
         dateOfEstd:dateOfEstd,
         email:email,
-        password:password
+        password:password,
+        ngoOtp:ngoOtp
     }).then(res=>{
+        console.log(res)
         if(res.data.message==="Account Created")
         {
+
             localStorage.setItem('email',email);
+            localStorage.setItem('userName',ngoName);
             localStorage.setItem('userType',"ngo");
             window.open('../feed.html',"_self");
         }
         else{
+            console.log("else")
             alert(res.data.message);
         }
 
     }).catch(err=>{
         alert(err);
     })
-
+    }
 }
 
 function restSignUp(){

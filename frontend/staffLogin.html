@@ -78,18 +78,18 @@
         </div>
       </nav>
     </header>
-
+  
+                
     <div class="container-fluid">
 
         <div class="row">
           <table style="width:100%;">
             <thead>
               <tr>
+                <br>
+                
                 <td>
-                  <button type="submit" id="restro" style="color:rgb(200, 204, 209);margin-top:1.5%;background-color:rgb(2, 15, 35);border-color:transparent;width:100%;border-radius:.5em;" onclick="listRestro()"><h2 style="color:rgb(200, 204, 209);">Restro</h2></button>
-                </td>
-                <td>
-                  <button type="submit" id="society" style="color:rgb(200, 204, 209);background:rgb(2, 15, 35);margin-top:1.5%;border-color:transparent;width:100%;border-radius:.5em;" onclick="listSociety()"><h2 style="color:rgb(200, 204, 209);">Society</h2></button>
+                  <button type="submit" id="society" style="color:rgb(200, 204, 209);background:rgb(2, 15, 35);margin-top:1.5%;border-color:transparent;width:100%;border-radius:.5em;" disabled onclick="listSociety()"><h2 style="color:rgb(200, 204, 209);">Society Issues</h2></button>
               </td>
             </tr>
           </thead>
@@ -99,91 +99,7 @@
         <div class="row">
         <div class="offset-lg-1 col-lg-10">
           <div id="list1">
-            <!-- <div class="container">
-                <div class="todo-list">
-                    <div class="item-card">
-                        <div class="note-title">
-                            Restro 1
-                        </div>
-                        <div class="note-desc">
-                            The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-                        </div>
-                        <div style="padding: 10px 5px 8px 10px;">
-                          <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-                        </div>
-                    </div>
-                    <div class="item-card">
-                        <div class="note-title">
-                            Restro 2
-                        </div>
-                        <div class="note-desc">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae hic obcaecati saepe alias quos, pariatur vero tempora nostrum, iste est officia perspiciatis ut optio beatae sunt voluptatum. Laboriosam, ipsam quidem.
-                        </div>
-                        <div style="padding: 10px 5px 8px 10px;">
-                          <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-                        </div>
-                    </div>
-                    <div class="item-card">
-                        <div class="note-title">
-                            Restro 3
-                        </div>
-                        <div class="note-desc">
-                            The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-                        </div>
-                        <div style="padding: 10px 5px 8px 10px;">
-                          <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-                        </div>
-                    </div>
-                    <div class="item-card">
-                        <div class="note-title">
-                            Restro 4
-                        </div>
-                        <div class="note-desc">
-                            The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-                        </div>
-                        <div style="padding: 10px 5px 8px 10px;">
-                          <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-                        </div>
-                    </div>
-                    <div class="item-card">
-                        <div class="note-title">
-                            Restro 5
-                        </div>
-                        <div class="note-desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, accusamus minima ipsa, illum facilis quidem labore fugit veritatis enim quibusdam quas dolor optio esse sunt aperiam consequuntur deserunt repellat laboriosam!
-                        </div>
-                        <div style="padding: 10px 5px 8px 10px;">
-                          <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-                        </div>
-                    </div>
-                    <div class="item-card">
-                        <div class="note-title">
-                            Restro 4
-                        </div>
-                        <div class="note-desc">
-                            The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-                        </div>
-                        <div style="padding: 10px 5px 8px 10px;">
-                          <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-                        </div>
-                    </div>
-                    <div class="item-card">
-                        <div class="note-title">
-                            Restro 4
-                        </div>
-                        <div class="note-desc">
-                            The quick brown fox jumps over the lazy dog. the quick brown fox jumps over the lazy dog
-                        </div>
-                        <div style="padding: 10px 5px 8px 10px;">
-                          <button type="submit" class="btn btn-success" style="width:10%;">Accept</button>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-
-          </div> -->
-        </div>
         <div id="list2"></div>
         <div id="list3"></div>
       </div>
@@ -207,7 +123,7 @@
   </body>
   <script>
   function openIndex(){
-    window.open("index.html",'_self');
+    window.open("./login||signUp/index.html",'_self');
   }
   </script>
   <script type="text/javascript">
@@ -308,13 +224,13 @@ document.getElementById("list2").innerHTML=`
             let issueImageUrl=[];
 
 
-function listSociety(){
+
     console.log("yaha hu main")
     axios.get('http://localhost:3000/issue')
     .then(res=>{
       console.log(res.data)
         document.getElementById("society").style.backgroundColor = "rgba(4, 23, 53,.9)";
-         document.getElementById("restro").style.backgroundColor = "rgb(2, 15, 35)";
+         
          document.getElementById("list1").innerHTML='';
          document.getElementById("list2").innerHTML='';
          document.getElementById("list3").innerHTML='';
@@ -327,43 +243,7 @@ function listSociety(){
              issueImageUrl[i]=res.data[i].issueImageUrl;
 
 
-            if(issueStatus[i]==='pending')
-            {
-              document.getElementById("list1").innerHTML+=`
-
-            <div class="item-card">
-                <div class="note-title">
-                    ${issueId[i]}
-                </div>
-                <div class="note-desc">
-                    ${issueDesc[i]}
-                </div>
-                <div style="padding: 10px 5px 8px 10px;">
-                  <button class="btn btn-success" style="width:10%;" onclick="pending(${i})" >pending</button>
-                </div>
-            </div>
-
-             `
-            }
-
-            if(issueStatus[i]==='solved')
-            {
-              document.getElementById("list3").innerHTML+=`
-
-            <div class="item-card">
-                <div class="note-title">
-                    ${issueId[i]}
-                </div>
-                <div class="note-desc">
-                    ${issueDesc[i]}
-                </div>
-                <div style="padding: 10px 5px 8px 10px;">
-                  <button class="btn btn-success" style="width:10%;" onclick="" >solved</button>
-                </div>
-            </div>
-
-             `
-            }
+            
             if(issueStatus[i]==='unsolved')
             {
             document.getElementById("list2").innerHTML+=`
@@ -384,35 +264,36 @@ function listSociety(){
           }
         }
     })
-    }
+    
 
 
 function accept(x){
-    document.getElementById(`a${x}`).innerHTML=`<div class="todo-list" id="issues_list">
-            <div class="item-card">
-                <div class="note-title">
-                    ${issueId[x]}
-                </div>
-                <div class="note-desc">
-                    ${issueDesc[x]}
-                </div>
-                <div style="padding: 10px 5px 8px 10px;">
-                  <button class="btn btn-success" style="width:10%;" onclick="pending(${x})" >pending</button>
-                </div>
-            </div>
-            </div>`
-
-            console.log(issueId[x]);
-    axios.put(`http://localhost:3000/issue/${issueId[x]}`,{
-      issueStatus:'pending'
-    })
+    let email=localStorage.getItem('email')
+    let name; 
+    axios.get(`http://localhost:3000/staff/${email}`)
     .then(res=>{
-      console.log('done');
-      console.log(res);
+      name=res.data.name;
+      console.log(res)
+      window.open(`https://himanshu-node-socket-chat-app.herokuapp.com/chat.html?username=${name}&room=${issueId[x]}`)
     })
-    .catch(err=>{
-      console.log(err);
+    
+
+    console.log("jai mata di")
+      axios.delete(`http://localhost:3000/issue/${issueId[x]}`)
+    .then(res=>{
+      alert("issue resolved")
+      setTimeout(() => {
+      window.open('staffLogin.html','_self');},5000)
+    }).catch(err=>{
+      console.log(err)
     })
+      
+
+    
+
+
+            
+    
 
 
 
@@ -430,6 +311,9 @@ function pending(x){
       console.log(err);
     })
 }
+
+
+
 
 
 </script>
