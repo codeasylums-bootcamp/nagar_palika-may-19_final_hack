@@ -5,6 +5,7 @@ const staffSchema=mongoose.Schema({
     staffName:{type:String,required:true},
     email:{type:String,required:true},
     password:{type:String,reauired:true},
+    issueHandled:{type:Array}
 })
 
 module.exports=mongoose.model('staff',staffSchema);

@@ -100,6 +100,17 @@ router.put('/chat/:title',function(req,res){
    
 })
 
+
+router.delete('/:issueId',function(req,res){
+    let issueId=req.params.issueId;
+
+    issueModel.deleteOne({"issueId":issueId})
+    .exec()
+    .then(response=>{
+        res.json({"message":"issue Solved"})
+    })
+})
+
 // router.put('/location/:issueTitle',function(req,res){
 //     const id=req.params.issueTitle;
 //     const newissueLocation = req.body.issueLocation
