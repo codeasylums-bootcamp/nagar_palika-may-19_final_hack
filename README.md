@@ -17,9 +17,9 @@ external apis used -  Google maps api for getting location of issue report.
 
 team members :
 
-Shivam Raj
-Nikhil Anand
-Ankur Utkarsh
+Shivam Raj,
+Nikhil Anand,
+Ankur Utkarsh,
 Shreya Bhagat
 
 
