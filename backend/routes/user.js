@@ -35,7 +35,11 @@ router.get('/:email', function(req,res){
             res.json(user)
     })
 })
+
+
 let val;
+
+
 router.post('/verify',function(req,res){
      val=1000 + Math.floor(Math.random()*9000);
 
@@ -81,7 +85,7 @@ router.post('/',function(req,res){
             }
         }
     }).catch(err=>{
-        res.json
+        res.json({"message":`${err}`})
         console.log(err)
     })
 })

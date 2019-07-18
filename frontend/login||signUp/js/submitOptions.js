@@ -430,7 +430,7 @@ function userSignUp(){
         if(res.data.message==="Account Created")
         {
             console.log("aaya hu yaha")
-            localStorage.setItem('userName',username);
+            localStorage.setItem('userName',userUsername);
             localStorage.setItem('email',userEmail);
             localStorage.setItem('userType',"user")
             window.open('../feed.html',"_self");
@@ -438,6 +438,52 @@ function userSignUp(){
         }
         else{
            console.log(res);
+           document.getElementById('service').innerHTML=`<div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-70 col-lg-8">
+                        <div class="title text-center">
+                            <h1 class="mb-10">Sign Up as User</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-5 offset-lg-2">
+                        <label for="userSignFirstname">Firstname</label>
+                        <input required="true"
+                        type="text"
+                        id="userSignFirstname"
+                        name="firstname"
+                        />
+
+                        <label for="userLastname">Lastname</label>
+                        <input required="true" type="text" id="userSignLastname" name="lastname" />
+
+                        <label for="userUsername">Username</label>
+                        <input required="true" type="text" id="userSignUsername" name="userUsername" />
+
+                        <label for="Date of Birth">Date of Birth</label>
+                        <input required="true" type="text" id="userSignDateofBirth" name="Date of Birth" />
+
+                        <label for="email">Email</label>
+                        <input type="email" id="userSignEmail" name="email" style="width:68%;">&nbsp<input type="submit" onclick="userotp()" class="btn btn-info" style="height:7.2%;" value="Generate OTP">
+                        <div id="userOtp">
+                        </div>
+
+                        <label for="userPassword">Password:</label>
+                        <input required="true"
+                        type="password"
+                        id="userSignPassword"
+                        name="password"
+                        />
+
+                    <button class="btn btn-info" onclick="userSignUp()">Submit</button>
+                    </div>
+
+
+                </div>
+            </div>	`;
             alert(res.data.message);
         }
 
